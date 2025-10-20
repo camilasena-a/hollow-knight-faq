@@ -301,3 +301,5 @@ export const categories = [
   { id: '5', name: 'Avançado', description: 'Técnicas e estratégias avançadas', icon: '🔥' },
   { id: '6', name: 'Colecionáveis', description: 'Itens e segredos escondidos', icon: '💎' }
 ];
+
+

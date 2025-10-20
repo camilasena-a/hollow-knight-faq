@@ -43,3 +43,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ selectedCategory, onCat
 };
 
 export default CategoryFilter;
+
+
+
+

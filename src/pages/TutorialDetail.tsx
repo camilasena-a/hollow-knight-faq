@@ -260,3 +260,7 @@ const TutorialDetail: React.FC = () => {
 };
 
 export default TutorialDetail;
+
+
+
+

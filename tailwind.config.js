@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'hollow-dark': '#1a1a1a',
+        'hollow-dark': '#0f0f1b',
         'hollow-darker': '#0d0d0d',
-        'hollow-gold': '#d4af37',
+        'hollow-gold': '#7d86c1',
         'hollow-silver': '#c0c0c0',
         'hollow-blue': '#4a90e2',
         'hollow-purple': '#8b5cf6',

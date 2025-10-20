@@ -16,8 +16,19 @@ const Home: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-hollow-darker to-hollow-dark py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-hollow-darker to-hollow-dark py-20 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/header.jpg)`,
+            opacity: 0.6
+          }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-hollow-darker to-hollow-dark" style={{ opacity: 0.5 }} />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Bem-vindo ao
@@ -154,3 +165,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
