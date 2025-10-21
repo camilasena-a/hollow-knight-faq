@@ -161,14 +161,14 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
     date: '2024-02-15',
     category: 'Avançado',
     difficulty: 'Avançado',
-    image: 'https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=225&fit=crop',
+    image: '/images/112thumbnail.png',
     tags: ['112%', 'completar', 'guia', 'colecionáveis', 'chefes'],
     likes: 312,
     readTime: 20
   },
   {
     id: '1',
-    title: 'Guia Completo para Iniciantes',
+    title: 'Guia de localização',
     description: 'Aprenda os conceitos básicos de Hollow Knight, desde controles até mecânicas fundamentais do jogo.',
     content: `# Guia Completo para Iniciantes
 
@@ -200,14 +200,14 @@ Após dominar o básico, explore Forgotten Crossroads e encontre o primeiro chef
     date: '2024-01-15',
     category: 'Iniciante',
     difficulty: 'Iniciante',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+    image: '/images/locationThumbnail.png',
     tags: ['iniciante', 'controles', 'básico'],
     likes: 127,
     readTime: 8
   },
   {
     id: '2',
-    title: 'Estratégias para Derrotar o False Knight',
+    title: 'SpeedRun Tranquila: Finalizando em 3h',
     description: 'Um guia detalhado sobre como derrotar o primeiro chefe principal do jogo com estratégias eficazes.',
     content: `# Estratégias para Derrotar o False Knight
 
@@ -240,7 +240,7 @@ Após derrotá-lo, você receberá:
     date: '2024-01-20',
     category: 'Chefes',
     difficulty: 'Iniciante',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=225&fit=crop',
+    image: '/images/speedRunThumbnail.webp',
     tags: ['chefe', 'false-knight', 'estratégia'],
     likes: 89,
     readTime: 6
