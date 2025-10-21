@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Heart, Share2, Clock, User, Calendar, MessageCircle } from 'lucide-react';
 import { tutorials } from '../data/tutorials';
+import CompletionChecklist from '../components/CompletionChecklist';
 
 const TutorialDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -160,11 +161,17 @@ const TutorialDetail: React.FC = () => {
 
         {/* Tutorial Content */}
         <div className="prose prose-invert prose-lg max-w-none">
-          <div className="bg-hollow-darker rounded-lg p-8">
-            <div className="whitespace-pre-wrap text-gray-300 leading-relaxed">
-              {tutorial.content}
+          {tutorial.id === '7' ? (
+            // Checklist interativo para o guia de 112%
+            <CompletionChecklist tutorialId={tutorial.id} />
+          ) : (
+            // Conteúdo normal para outros tutoriais
+            <div className="bg-hollow-darker rounded-lg p-8">
+              <div className="whitespace-pre-wrap text-gray-300 leading-relaxed">
+                {tutorial.content}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Tags */}

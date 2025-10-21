@@ -2,6 +2,171 @@ import { Tutorial } from '../types';
 
 export const tutorials: Tutorial[] = [
   {
+    id: '7',
+    title: 'Guia Completo: Finalizar com 112%',
+    description: 'O guia definitivo para alcançar 112% de conclusão em Hollow Knight, incluindo todos os requisitos e estratégias.',
+    content: `# Guia Completo: Finalizar com 112%
+
+## O que é 112%?
+Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 112%. Isso representa a conclusão completa do jogo, incluindo todos os conteúdos opcionais e DLCs.
+
+## Requisitos para 112%
+
+### Chefes Obrigatórios (40%)
+1. **False Knight** (1%)
+2. **Hornet (Greenpath)** (1%)
+3. **Brooding Mawlek** (1%)
+4. **Gruz Mother** (1%)
+5. **Mantis Lords** (1%)
+6. **Soul Master** (1%)
+7. **Dung Defender** (1%)
+8. **Broken Vessel** (1%)
+9. **Watcher Knights** (1%)
+10. **Uumuu** (1%)
+11. **Hornet Sentinel** (1%)
+12. **Enraged Guardian** (1%)
+13. **Lost Kin** (1%)
+14. **No Eyes** (1%)
+15. **Traitor Lord** (1%)
+16. **White Defender** (1%)
+17. **Soul Tyrant** (1%)
+18. **Grey Prince Zote** (1%)
+19. **Failed Champion** (1%)
+20. **Markoth** (1%)
+21. **Galien** (1%)
+22. **Xero** (1%)
+23. **Gorb** (1%)
+24. **Elder Hu** (1%)
+25. **Marmu** (1%)
+26. **No Eyes (Dream)** (1%)
+27. **Collector** (1%)
+28. **God Tamer** (1%)
+29. **Crystal Guardian** (1%)
+30. **Oblobbles** (1%)
+31. **Flukemarm** (1%)
+32. **Broken Vessel (Dream)** (1%)
+33. **Soul Master (Dream)** (1%)
+34. **Dung Defender (Dream)** (1%)
+35. **White Defender (Dream)** (1%)
+36. **Grey Prince Zote (Dream)** (1%)
+37. **Failed Champion (Dream)** (1%)
+38. **Lost Kin (Dream)** (1%)
+39. **Soul Tyrant (Dream)** (1%)
+40. **Hollow Knight** (1%)
+
+### Áreas Descobertas (12%)
+- **Forgotten Crossroads** (1%)
+- **Greenpath** (1%)
+- **Fungal Wastes** (1%)
+- **City of Tears** (1%)
+- **Crystal Peak** (1%)
+- **Royal Waterways** (1%)
+- **Ancient Basin** (1%)
+- **Kingdom's Edge** (1%)
+- **Deepnest** (1%)
+- **Queen's Gardens** (1%)
+- **Howling Cliffs** (1%)
+- **Resting Grounds** (1%)
+
+### Itens e Upgrades (20%)
+- **Máscaras** (4% - 4 máscaras)
+- **Fragmentos de Alma** (3% - 3 fragmentos)
+- **Nail Upgrades** (4% - 4 upgrades)
+- **Amuletos** (4% - 40 amuletos)
+- **Charm Notches** (3% - 8 notches)
+- **Vessel Fragments** (2% - 3 fragmentos)
+
+### Colecionáveis (20%)
+- **Grubs** (1% - 46 grubs)
+- **Rancid Eggs** (1% - 5 eggs)
+- **Wanderer's Journal** (1% - 10 journals)
+- **Hallownest Seal** (1% - 4 seals)
+- **King's Idol** (1% - 4 idols)
+- **Arcane Egg** (1% - 4 eggs)
+- **Pale Ore** (1% - 6 ores)
+- **Geo** (1% - 25.000 geo)
+- **Soul Vessel** (1% - 3 vessels)
+- **Mask Shard** (1% - 4 shards)
+- **Charm** (1% - 40 charms)
+- **Nail** (1% - 4 upgrades)
+- **Spell** (1% - 3 spells)
+- **Dream Nail** (1% - 1 nail)
+- **Crystal Heart** (1% - 1 heart)
+- **Monarch Wings** (1% - 1 wings)
+- **Mantis Claw** (1% - 1 claw)
+- **Mothwing Cloak** (1% - 1 cloak)
+- **Isma's Tear** (1% - 1 tear)
+- **Shade Cloak** (1% - 1 cloak)
+
+### Conteúdo Opcional (20%)
+- **Pantheons** (5% - 5 pantheons)
+- **Godhome** (3% - 3 áreas)
+- **Path of Pain** (2% - 1 área)
+- **White Palace** (2% - 1 área)
+- **Grimm Troupe** (3% - 3 bosses)
+- **Lifeblood** (2% - 2 bosses)
+- **Hidden Dreams** (3% - 3 bosses)
+
+## Estratégia Recomendada
+
+### Fase 1: Exploração Básica (0-60%)
+1. Complete a história principal
+2. Derrote todos os chefes obrigatórios
+3. Colete upgrades básicos
+4. Explore todas as áreas
+
+### Fase 2: Colecionáveis (60-90%)
+1. Resgate todos os Grubs
+2. Colete todos os amuletos
+3. Complete os upgrades de Nail
+4. Encontre todos os fragmentos
+
+### Fase 3: Conteúdo Avançado (90-112%)
+1. Complete os Pantheons
+2. Derrote todos os Dream Bosses
+3. Complete o Path of Pain
+4. Finalize o Grimm Troupe
+
+## Dicas Importantes
+
+### Para Iniciantes
+- Não se apresse - 112% é um objetivo de longo prazo
+- Use guias de localização para colecionáveis
+- Salve frequentemente
+- Pratique combate regularmente
+
+### Para Experientes
+- Planeje rotas eficientes
+- Use builds otimizadas para cada área
+- Domine técnicas avançadas de movimento
+- Seja paciente com os Pantheons
+
+## Recompensas por 112%
+- **Título "Completionist"**
+- **Acesso completo ao Godhome**
+- **Todos os finais desbloqueados**
+- **Satisfação de ter completado tudo**
+
+## Tempo Estimado
+- **Jogador Iniciante**: 60-80 horas
+- **Jogador Experiente**: 40-60 horas
+- **Speedrunner**: 20-30 horas
+
+## Recursos Úteis
+- Mapas interativos online
+- Guias de localização de colecionáveis
+- Comunidade de Hollow Knight
+- Ferramentas de tracking de progresso`,
+    author: 'Completionist',
+    date: '2024-02-15',
+    category: 'Avançado',
+    difficulty: 'Avançado',
+    image: 'https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=225&fit=crop',
+    tags: ['112%', 'completar', 'guia', 'colecionáveis', 'chefes'],
+    likes: 312,
+    readTime: 20
+  },
+  {
     id: '1',
     title: 'Guia Completo para Iniciantes',
     description: 'Aprenda os conceitos básicos de Hollow Knight, desde controles até mecânicas fundamentais do jogo.',
