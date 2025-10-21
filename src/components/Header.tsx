@@ -35,19 +35,28 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                className={`group px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-2 ${
                   isActive(item.href)
-                    ? 'text-hollow-gold bg-hollow-dark'
-                    : 'text-gray-300 hover:text-white hover:bg-hollow-dark'
+                    ? 'text-hollow-gold'
+                    : 'text-gray-300 hover:text-white'
                 }`}
               >
-                {item.name}
+                <img
+                  src="/images/logotipo.png"
+                  alt="Hollow Knight - Logotipo"
+                  className={`h-5 w-auto transition-opacity duration-200 ${
+                    isActive(item.href)
+                      ? 'opacity-100'
+                      : 'opacity-0 group-hover:opacity-100'
+                  }`}
+                />
+                <span>{item.name}</span>
               </Link>
             ))}
           </nav>
 
           {/* Search Bar */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <input
@@ -58,11 +67,6 @@ const Header: React.FC = () => {
                 className="input-field pl-10 pr-4 py-2 w-64"
               />
             </div>
-            <img
-              src="/images/logotipo.png"
-              alt="Hollow Knight - Logotipo"
-              className="h-8 w-auto"
-            />
           </div>
 
           {/* Mobile menu button */}
@@ -96,22 +100,15 @@ const Header: React.FC = () => {
                   </Link>
                 ))}
                 <div className="px-3 py-2">
-                <div className="flex items-center space-x-3">
                   <div className="relative w-full">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                      <input
-                        type="text"
-                        placeholder="Buscar tutoriais..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="input-field pl-10 pr-4 py-2 w-full"
-                      />
-                    </div>
-                  <img
-                    src="/images/logotipo.png"
-                    alt="Hollow Knight - Logotipo"
-                    className="h-8 w-auto"
-                  />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <input
+                      type="text"
+                      placeholder="Buscar tutoriais..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="input-field pl-10 pr-4 py-2 w-full"
+                    />
                   </div>
                 </div>
               </>
