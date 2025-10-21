@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Check, X } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 interface ChecklistItem {
   id: string;
@@ -19,100 +19,136 @@ const CompletionChecklist: React.FC<CompletionChecklistProps> = ({ tutorialId })
 
   // Dados do checklist de 112%
   const checklistData: ChecklistItem[] = [
-    // Chefes Obrigatórios (40%)
-    { id: 'false-knight', name: 'False Knight', category: 'Chefes', percentage: 1 },
-    { id: 'hornet-greenpath', name: 'Hornet (Greenpath)', category: 'Chefes', percentage: 1 },
-    { id: 'brooding-mawlek', name: 'Brooding Mawlek', category: 'Chefes', percentage: 1 },
-    { id: 'gruz-mother', name: 'Gruz Mother', category: 'Chefes', percentage: 1 },
-    { id: 'mantis-lords', name: 'Mantis Lords', category: 'Chefes', percentage: 1 },
-    { id: 'soul-master', name: 'Soul Master', category: 'Chefes', percentage: 1 },
-    { id: 'dung-defender', name: 'Dung Defender', category: 'Chefes', percentage: 1 },
-    { id: 'broken-vessel', name: 'Broken Vessel', category: 'Chefes', percentage: 1 },
-    { id: 'watcher-knights', name: 'Watcher Knights', category: 'Chefes', percentage: 1 },
+    // Chefes (17%)
+    { id: 'false-knight', name: 'Falso Cavaleiro', category: 'Chefes', percentage: 1 },
+    { id: 'hornet-protector', name: 'Hornet Protetora', category: 'Chefes', percentage: 1 },
+    { id: 'brooding-mawlek', name: 'Mawlek Incubador', category: 'Chefes', percentage: 1 },
+    { id: 'gruz-mother', name: 'Mãe Mosca', category: 'Chefes', percentage: 1 },
+    { id: 'mantis-lords', name: 'Lordes Louva-a-Deus', category: 'Chefes', percentage: 1 },
+    { id: 'soul-master', name: 'Mestre das Almas', category: 'Chefes', percentage: 1 },
+    { id: 'dung-defender', name: 'Defensor do Esterco', category: 'Chefes', percentage: 1 },
+    { id: 'broken-vessel', name: 'Receptáculo Quebrado', category: 'Chefes', percentage: 1 },
+    { id: 'watcher-knights', name: 'Cavaleiros Sentinelas', category: 'Chefes', percentage: 1 },
     { id: 'uumuu', name: 'Uumuu', category: 'Chefes', percentage: 1 },
-    { id: 'hornet-sentinel', name: 'Hornet Sentinel', category: 'Chefes', percentage: 1 },
-    { id: 'enraged-guardian', name: 'Enraged Guardian', category: 'Chefes', percentage: 1 },
-    { id: 'lost-kin', name: 'Lost Kin', category: 'Chefes', percentage: 1 },
-    { id: 'no-eyes', name: 'No Eyes', category: 'Chefes', percentage: 1 },
-    { id: 'traitor-lord', name: 'Traitor Lord', category: 'Chefes', percentage: 1 },
-    { id: 'white-defender', name: 'White Defender', category: 'Chefes', percentage: 1 },
-    { id: 'soul-tyrant', name: 'Soul Tyrant', category: 'Chefes', percentage: 1 },
-    { id: 'grey-prince-zote', name: 'Grey Prince Zote', category: 'Chefes', percentage: 1 },
-    { id: 'failed-champion', name: 'Failed Champion', category: 'Chefes', percentage: 1 },
-    { id: 'markoth', name: 'Markoth', category: 'Chefes', percentage: 1 },
-    { id: 'galien', name: 'Galien', category: 'Chefes', percentage: 1 },
-    { id: 'xero', name: 'Xero', category: 'Chefes', percentage: 1 },
-    { id: 'gorb', name: 'Gorb', category: 'Chefes', percentage: 1 },
-    { id: 'elder-hu', name: 'Elder Hu', category: 'Chefes', percentage: 1 },
-    { id: 'marmu', name: 'Marmu', category: 'Chefes', percentage: 1 },
-    { id: 'no-eyes-dream', name: 'No Eyes (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'collector', name: 'Collector', category: 'Chefes', percentage: 1 },
-    { id: 'god-tamer', name: 'God Tamer', category: 'Chefes', percentage: 1 },
-    { id: 'crystal-guardian', name: 'Crystal Guardian', category: 'Chefes', percentage: 1 },
-    { id: 'oblobbles', name: 'Oblobbles', category: 'Chefes', percentage: 1 },
-    { id: 'flukemarm', name: 'Flukemarm', category: 'Chefes', percentage: 1 },
-    { id: 'broken-vessel-dream', name: 'Broken Vessel (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'soul-master-dream', name: 'Soul Master (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'dung-defender-dream', name: 'Dung Defender (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'white-defender-dream', name: 'White Defender (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'grey-prince-zote-dream', name: 'Grey Prince Zote (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'failed-champion-dream', name: 'Failed Champion (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'lost-kin-dream', name: 'Lost Kin (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'soul-tyrant-dream', name: 'Soul Tyrant (Dream)', category: 'Chefes', percentage: 1 },
-    { id: 'hollow-knight', name: 'Hollow Knight', category: 'Chefes', percentage: 1 },
+    { id: 'hornet-sentinel', name: 'Hornet Sentinela', category: 'Chefes', percentage: 1 },
+    { id: 'collector', name: 'O Colecionador', category: 'Chefes', percentage: 1 },
+    { id: 'nosk', name: 'Nosk', category: 'Chefes', percentage: 1 },
+    { id: 'traitor-lord', name: 'Lorde Traidor', category: 'Chefes', percentage: 1 },
+    { id: 'grimm', name: 'Grimm', category: 'Chefes', percentage: 1 },
+    { id: 'nightmare-grimm', name: 'Rei do Pesadelo Grimm/Banimento', category: 'Chefes', percentage: 1 },
+    { id: 'hive-knight', name: 'Cavaleiro da Colmeia', category: 'Chefes', percentage: 1 },
 
-    // Áreas Descobertas (12%)
-    { id: 'forgotten-crossroads', name: 'Forgotten Crossroads', category: 'Áreas', percentage: 1 },
-    { id: 'greenpath', name: 'Greenpath', category: 'Áreas', percentage: 1 },
-    { id: 'fungal-wastes', name: 'Fungal Wastes', category: 'Áreas', percentage: 1 },
-    { id: 'city-of-tears', name: 'City of Tears', category: 'Áreas', percentage: 1 },
-    { id: 'crystal-peak', name: 'Crystal Peak', category: 'Áreas', percentage: 1 },
-    { id: 'royal-waterways', name: 'Royal Waterways', category: 'Áreas', percentage: 1 },
-    { id: 'ancient-basin', name: 'Ancient Basin', category: 'Áreas', percentage: 1 },
-    { id: 'kingdoms-edge', name: 'Kingdom\'s Edge', category: 'Áreas', percentage: 1 },
-    { id: 'deepnest', name: 'Deepnest', category: 'Áreas', percentage: 1 },
-    { id: 'queens-gardens', name: 'Queen\'s Gardens', category: 'Áreas', percentage: 1 },
-    { id: 'howling-cliffs', name: 'Howling Cliffs', category: 'Áreas', percentage: 1 },
-    { id: 'resting-grounds', name: 'Resting Grounds', category: 'Áreas', percentage: 1 },
+    // Amuletos (40%)
+    { id: 'wayward-compass', name: 'Bússola Caprichosa', category: 'Amuletos', percentage: 1 },
+    { id: 'gathering-swarm', name: 'Enxame de Colecionadores', category: 'Amuletos', percentage: 1 },
+    { id: 'stalwart-shell', name: 'Carapaça Robusta', category: 'Amuletos', percentage: 1 },
+    { id: 'soul-catcher', name: 'Apanhador de Almas', category: 'Amuletos', percentage: 1 },
+    { id: 'shaman-stone', name: 'Pedra do Xamã', category: 'Amuletos', percentage: 1 },
+    { id: 'soul-eater', name: 'Devorador de Almas', category: 'Amuletos', percentage: 1 },
+    { id: 'dashmaster', name: 'Mestre da Esquiva', category: 'Amuletos', percentage: 1 },
+    { id: 'thorns-of-agony', name: 'Espinhos da Agonia', category: 'Amuletos', percentage: 1 },
+    { id: 'fury-of-the-fallen', name: 'Fúria dos Caídos', category: 'Amuletos', percentage: 1 },
+    { id: 'fragile-heart', name: 'Coração Frágil/Inquebrável', category: 'Amuletos', percentage: 1 },
+    { id: 'fragile-greed', name: 'Ganância Frágil/Inquebrável', category: 'Amuletos', percentage: 1 },
+    { id: 'fragile-strength', name: 'Força Frágil/Inquebrável', category: 'Amuletos', percentage: 1 },
+    { id: 'spell-twister', name: 'Dobrador de Magias', category: 'Amuletos', percentage: 1 },
+    { id: 'steady-body', name: 'Corpo Firme', category: 'Amuletos', percentage: 1 },
+    { id: 'heavy-blow', name: 'Golpe Pesado', category: 'Amuletos', percentage: 1 },
+    { id: 'quick-slash', name: 'Corte Rápido', category: 'Amuletos', percentage: 1 },
+    { id: 'longnail', name: 'Ferrão Longo', category: 'Amuletos', percentage: 1 },
+    { id: 'mark-of-pride', name: 'Marca de Orgulho', category: 'Amuletos', percentage: 1 },
+    { id: 'baldur-shell', name: 'Carapaça de Baldur', category: 'Amuletos', percentage: 1 },
+    { id: 'flukenest', name: 'Ninho de Flukes', category: 'Amuletos', percentage: 1 },
+    { id: 'defenders-crest', name: 'Insígnia do Defensor', category: 'Amuletos', percentage: 1 },
+    { id: 'glowing-womb', name: 'Útero Brilhante', category: 'Amuletos', percentage: 1 },
+    { id: 'quick-focus', name: 'Foco Rápido', category: 'Amuletos', percentage: 1 },
+    { id: 'deep-focus', name: 'Foco Profundo', category: 'Amuletos', percentage: 1 },
+    { id: 'lifeblood-heart', name: 'Coração de Sangue Vital', category: 'Amuletos', percentage: 1 },
+    { id: 'lifeblood-core', name: 'Núcleo de Sangue Vital', category: 'Amuletos', percentage: 1 },
+    { id: 'jonis-blessing', name: 'Bênção de Joni', category: 'Amuletos', percentage: 1 },
+    { id: 'hiveblood', name: 'Sangue da Colmeia', category: 'Amuletos', percentage: 1 },
+    { id: 'spore-shroom', name: 'Cogumelo com Esporos', category: 'Amuletos', percentage: 1 },
+    { id: 'sharp-shadow', name: 'Sombra Afiada', category: 'Amuletos', percentage: 1 },
+    { id: 'shape-of-unn', name: 'Forma de Unn', category: 'Amuletos', percentage: 1 },
+    { id: 'nailmasters-glory', name: 'Glória do Mestre do Ferrão', category: 'Amuletos', percentage: 1 },
+    { id: 'weaversong', name: 'Canção das Tecelãs', category: 'Amuletos', percentage: 1 },
+    { id: 'dream-wielder', name: 'Portador dos Sonhos', category: 'Amuletos', percentage: 1 },
+    { id: 'kingsoul', name: 'Alma do Rei/Coração Vazio', category: 'Amuletos', percentage: 1 },
+    { id: 'dreamshield', name: 'Escudo dos Sonhos', category: 'Amuletos', percentage: 1 },
+    { id: 'grimmchild', name: 'Criança Grimm/Melodia Despreocupada', category: 'Amuletos', percentage: 1 },
+    { id: 'sprintmaster', name: 'Mestre da Corrida', category: 'Amuletos', percentage: 1 },
+    { id: 'grubsong', name: 'Canção das Larvas', category: 'Amuletos', percentage: 1 },
+    { id: 'grubberflys-elegy', name: 'Elegia da Larvamosca', category: 'Amuletos', percentage: 1 },
 
-    // Itens e Upgrades (20%)
-    { id: 'masks', name: 'Máscaras (4 máscaras)', category: 'Itens', percentage: 4 },
-    { id: 'soul-fragments', name: 'Fragmentos de Alma (3 fragmentos)', category: 'Itens', percentage: 3 },
-    { id: 'nail-upgrades', name: 'Nail Upgrades (4 upgrades)', category: 'Itens', percentage: 4 },
-    { id: 'charms', name: 'Amuletos (40 amuletos)', category: 'Itens', percentage: 4 },
-    { id: 'charm-notches', name: 'Charm Notches (8 notches)', category: 'Itens', percentage: 3 },
-    { id: 'vessel-fragments', name: 'Vessel Fragments (3 fragmentos)', category: 'Itens', percentage: 2 },
+    // Equipamentos (14%)
+    { id: 'crystal-heart', name: 'Coração de Cristal', category: 'Equipamentos', percentage: 2 },
+    { id: 'ismas-tear', name: 'Lágrima de Isma', category: 'Equipamentos', percentage: 2 },
+    { id: 'kings-brand', name: 'Marca do Rei', category: 'Equipamentos', percentage: 2 },
+    { id: 'monarch-wings', name: 'Asas do Monarca', category: 'Equipamentos', percentage: 2 },
+    { id: 'mothwing-cloak', name: 'Manto de Asa de Mariposa', category: 'Equipamentos', percentage: 2 },
+    { id: 'shade-cloak', name: 'Manto Sombrio', category: 'Equipamentos', percentage: 2 },
+    { id: 'mantis-claw', name: 'Garra de Mantis', category: 'Equipamentos', percentage: 2 },
 
-    // Colecionáveis (20%)
-    { id: 'grubs', name: 'Grubs (46 grubs)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'rancid-eggs', name: 'Rancid Eggs (5 eggs)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'wanderers-journal', name: 'Wanderer\'s Journal (10 journals)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'hallownest-seal', name: 'Hallownest Seal (4 seals)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'kings-idol', name: 'King\'s Idol (4 idols)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'arcane-egg', name: 'Arcane Egg (4 eggs)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'pale-ore', name: 'Pale Ore (6 ores)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'geo', name: 'Geo (25.000 geo)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'soul-vessel', name: 'Soul Vessel (3 vessels)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'mask-shard', name: 'Mask Shard (4 shards)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'charm-collectible', name: 'Charm (40 charms)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'nail-collectible', name: 'Nail (4 upgrades)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'spell', name: 'Spell (3 spells)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'dream-nail', name: 'Dream Nail (1 nail)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'crystal-heart', name: 'Crystal Heart (1 heart)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'monarch-wings', name: 'Monarch Wings (1 wings)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'mantis-claw', name: 'Mantis Claw (1 claw)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'mothwing-cloak', name: 'Mothwing Cloak (1 cloak)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'ismas-tear', name: 'Isma\'s Tear (1 tear)', category: 'Colecionáveis', percentage: 1 },
-    { id: 'shade-cloak', name: 'Shade Cloak (1 cloak)', category: 'Colecionáveis', percentage: 1 },
+    // Fragmentos de Máscara (4%)
+    { id: 'mask-upgrade-1', name: 'Melhoria de Máscara 1', category: 'Fragmentos de Máscara', percentage: 1 },
+    { id: 'mask-upgrade-2', name: 'Melhoria de Máscara 2', category: 'Fragmentos de Máscara', percentage: 1 },
+    { id: 'mask-upgrade-3', name: 'Melhoria de Máscara 3', category: 'Fragmentos de Máscara', percentage: 1 },
+    { id: 'mask-upgrade-4', name: 'Melhoria de Máscara 4', category: 'Fragmentos de Máscara', percentage: 1 },
 
-    // Conteúdo Opcional (20%)
-    { id: 'pantheons', name: 'Pantheons (5 pantheons)', category: 'Opcional', percentage: 5 },
-    { id: 'godhome', name: 'Godhome (3 áreas)', category: 'Opcional', percentage: 3 },
-    { id: 'path-of-pain', name: 'Path of Pain (1 área)', category: 'Opcional', percentage: 2 },
-    { id: 'white-palace', name: 'White Palace (1 área)', category: 'Opcional', percentage: 2 },
-    { id: 'grimm-troupe', name: 'Grimm Troupe (3 bosses)', category: 'Opcional', percentage: 3 },
-    { id: 'lifeblood', name: 'Lifeblood (2 bosses)', category: 'Opcional', percentage: 2 },
-    { id: 'hidden-dreams', name: 'Hidden Dreams (3 bosses)', category: 'Opcional', percentage: 3 },
+    // Fragmentos de Receptáculo (3%)
+    { id: 'vessel-upgrade-1', name: 'Melhoria de Receptáculo 1', category: 'Fragmentos de Receptáculo', percentage: 1 },
+    { id: 'vessel-upgrade-2', name: 'Melhoria de Receptáculo 2', category: 'Fragmentos de Receptáculo', percentage: 1 },
+    { id: 'vessel-upgrade-3', name: 'Melhoria de Receptáculo 3', category: 'Fragmentos de Receptáculo', percentage: 1 },
+
+    // Artes do Ferrão (3%)
+    { id: 'cyclone-slash', name: 'Corte Ciclone', category: 'Artes do Ferrão', percentage: 1 },
+    { id: 'great-slash', name: 'Corte Impulsionado', category: 'Artes do Ferrão', percentage: 1 },
+    { id: 'dash-slash', name: 'Grande Corte', category: 'Artes do Ferrão', percentage: 1 },
+
+    // Magias (6%)
+    { id: 'vengeful-spirit', name: 'Espírito Vingativo', category: 'Magias', percentage: 1 },
+    { id: 'shade-soul', name: 'Alma Sombria', category: 'Magias', percentage: 1 },
+    { id: 'desolate-dive', name: 'Mergulho Desolador', category: 'Magias', percentage: 1 },
+    { id: 'descending-dark', name: 'Escuridão Descente', category: 'Magias', percentage: 1 },
+    { id: 'howling-wraiths', name: 'Espectros Uivantes', category: 'Magias', percentage: 1 },
+    { id: 'abyss-shriek', name: 'Grito do Abismo', category: 'Magias', percentage: 1 },
+
+    // Melhorias do Ferrão (4%)
+    { id: 'nail-sharp', name: 'Ferrão Velho -> Ferrão Afiado', category: 'Melhorias do Ferrão', percentage: 1 },
+    { id: 'nail-channeled', name: 'Ferrão Afiado -> Ferrão Canalizado', category: 'Melhorias do Ferrão', percentage: 1 },
+    { id: 'nail-coiled', name: 'Ferrão Canalizado -> Ferrão Serpenteado', category: 'Melhorias do Ferrão', percentage: 1 },
+    { id: 'nail-pure', name: 'Ferrão Serpenteado -> Ferrão Puro', category: 'Melhorias do Ferrão', percentage: 1 },
+
+    // Coliseu dos Tolos (3%)
+    { id: 'warrior-trial', name: 'Provação do Guerreiro', category: 'Coliseu dos Tolos', percentage: 1 },
+    { id: 'conqueror-trial', name: 'Provação do Conquistador', category: 'Coliseu dos Tolos', percentage: 1 },
+    { id: 'fool-trial', name: 'Provação do Tolo', category: 'Coliseu dos Tolos', percentage: 1 },
+
+    // Sonhadores (3%)
+    { id: 'herrah', name: 'Herrah, a Besta', category: 'Sonhadores', percentage: 1 },
+    { id: 'lurien', name: 'Lurien, o Observador', category: 'Sonhadores', percentage: 1 },
+    { id: 'monomon', name: 'Monomon, a Professora', category: 'Sonhadores', percentage: 1 },
+
+    // Ferrão dos Sonhos e Essência (3%)
+    { id: 'dream-nail-acquired', name: 'Ferrão dos Sonhos adquirido', category: 'Ferrão dos Sonhos', percentage: 1 },
+    { id: 'dream-nail-awakened', name: 'Despertar o Ferrão dos Sonhos', category: 'Ferrão dos Sonhos', percentage: 1 },
+    { id: 'seer-final-words', name: 'Ouvir as palavras finais da Vidente', category: 'Ferrão dos Sonhos', percentage: 1 },
+
+    // Guerreiros dos Sonhos (7%)
+    { id: 'elder-hu', name: 'Ancião Hu', category: 'Guerreiros dos Sonhos', percentage: 1 },
+    { id: 'galien', name: 'Galien', category: 'Guerreiros dos Sonhos', percentage: 1 },
+    { id: 'gorb', name: 'Gorb', category: 'Guerreiros dos Sonhos', percentage: 1 },
+    { id: 'markoth', name: 'Markoth', category: 'Guerreiros dos Sonhos', percentage: 1 },
+    { id: 'marmu', name: 'Marmu', category: 'Guerreiros dos Sonhos', percentage: 1 },
+    { id: 'no-eyes', name: 'Sem Olhos', category: 'Guerreiros dos Sonhos', percentage: 1 },
+    { id: 'xero', name: 'Xero', category: 'Guerreiros dos Sonhos', percentage: 1 },
+
+    // Panteões (5%)
+    { id: 'god-tuner', name: 'Sintonizador de Deuses', category: 'Panteões', percentage: 1 },
+    { id: 'pantheon-master', name: 'Panteão do Mestre', category: 'Panteões', percentage: 1 },
+    { id: 'pantheon-artist', name: 'Panteão do Artista', category: 'Panteões', percentage: 1 },
+    { id: 'pantheon-sage', name: 'Panteão do Sábio', category: 'Panteões', percentage: 1 },
+    { id: 'pantheon-knight', name: 'Panteão do Cavaleiro', category: 'Panteões', percentage: 1 },
   ];
 
   // Carregar progresso salvo do localStorage
@@ -138,7 +174,7 @@ const CompletionChecklist: React.FC<CompletionChecklistProps> = ({ tutorialId })
       return completedItems.has(item.id) ? sum + item.percentage : sum;
     }, 0);
     setTotalPercentage(total);
-  }, [completedItems]);
+  }, [completedItems, checklistData]);
 
   // Salvar progresso no localStorage
   const saveProgress = (newCompletedItems: Set<string>) => {
@@ -193,6 +229,46 @@ const CompletionChecklist: React.FC<CompletionChecklistProps> = ({ tutorialId })
     saveProgress(allItems);
   };
 
+  // Função para criar gradiente da barra de progresso baseado na porcentagem
+  const getProgressBarGradient = (percentage: number) => {
+    // Se atingiu 112%, mostrar todas as 5 cores
+    if (percentage >= 112) {
+      return 'linear-gradient(to right, #6b7280 0%, #4b5563 25%, #1f2937 50%, #c6b7be 75%, #fafbf6 100%)';
+    }
+    // Se atingiu 84%, mostrar 4 cores
+    else if (percentage >= 84) {
+      return 'linear-gradient(to right, #6b7280 0%, #4b5563 33%, #1f2937 66%, #c6b7be 100%)';
+    }
+    // Se atingiu 56%, mostrar 3 cores
+    else if (percentage >= 56) {
+      return 'linear-gradient(to right, #6b7280 0%, #4b5563 50%, #1f2937 100%)';
+    }
+    // Se atingiu 28%, mostrar 2 cores
+    else if (percentage >= 28) {
+      return 'linear-gradient(to right, #6b7280 0%, #4b5563 100%)';
+    }
+    // Se não atingiu 28%, mostrar apenas 1 cor
+    else {
+      return '#6b7280';
+    }
+  };
+
+  // Função para determinar a cor atual da porcentagem (última faixa atingida)
+  const getCurrentPercentageColor = (percentage: number) => {
+    if (percentage < 28) {
+      return '#6b7280'; // Cinza claro
+    } else if (percentage >= 28 && percentage < 56) {
+      return '#4b5563'; // Cinza médio
+    } else if (percentage >= 56 && percentage < 84) {
+      return '#1f2937'; // Cinza escuro
+    } else if (percentage >= 84 && percentage < 112) {
+      return '#c6b7be'; // Rosa claro
+    } else if (percentage >= 112) {
+      return '#fafbf6'; // Branco/creme
+    }
+    return '#6b7280'; // Cor padrão
+  };
+
   // Agrupar itens por categoria
   const groupedItems = checklistData.reduce((acc, item) => {
     if (!acc[item.category]) {
@@ -217,7 +293,12 @@ const CompletionChecklist: React.FC<CompletionChecklistProps> = ({ tutorialId })
             )}
           </div>
           <div className="text-right">
-            <div className="text-3xl font-bold text-hollow-gold">{totalPercentage}%</div>
+            <div 
+              className="text-3xl font-bold"
+              style={{ color: getCurrentPercentageColor(totalPercentage) }}
+            >
+              {totalPercentage}%
+            </div>
             <div className="text-sm text-gray-400">de 112%</div>
           </div>
         </div>
@@ -225,8 +306,14 @@ const CompletionChecklist: React.FC<CompletionChecklistProps> = ({ tutorialId })
         {/* Barra de progresso */}
         <div className="w-full bg-gray-700 rounded-full h-3 mb-4">
           <div 
-            className="bg-gradient-to-r from-hollow-gold to-yellow-400 h-3 rounded-full transition-all duration-500"
-            style={{ width: `${(totalPercentage / 112) * 100}%` }}
+            style={{ 
+              width: `${(totalPercentage / 112) * 100}%`,
+              height: '12px',
+              background: getProgressBarGradient(totalPercentage),
+              borderRadius: '9999px',
+              transition: 'all 0.5s ease',
+              minWidth: totalPercentage > 0 ? '4px' : '0px'
+            }}
           ></div>
         </div>
 
