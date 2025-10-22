@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Definir fonte Trajan Pro */
+@font-face {
+  font-family: 'Trajan Pro';
+  src: url('./assets/fonts/Trajan Pro Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Estilos globais personalizados */
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Trajan Pro', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
