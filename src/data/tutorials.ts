@@ -4,9 +4,9 @@ import { Tutorial } from '../types';
 export const tutorials: Tutorial[] = [
   {
     id: '7',
-    title: 'Guia Completo: Finalizar com 112%',
-    description: 'O guia definitivo para alcançar 112% de conclusão em Hollow Knight, incluindo todos os requisitos e estratégias.',
-    content: `# Guia Completo: Finalizar com 112%
+    title: '112%: Checklist',
+    description: 'Checklist interativo para acompanhar seu progresso rumo aos 112% de conclusão em Hollow Knight.',
+    content: `# 112%: Checklist
 
 ## O que é 112%?
 Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 112%. Isso representa a conclusão completa do jogo, incluindo todos os conteúdos opcionais e DLCs.
@@ -193,7 +193,7 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
 - Guias de localização de colecionáveis
 - Comunidade de Hollow Knight
 - Ferramentas de tracking de progresso`,
-    author: 'Completionist',
+    author: 'camilasena-a',
     date: '2024-02-15',
     category: 'Avançado',
     difficulty: 'Avançado',
@@ -232,7 +232,7 @@ Hollow Knight é um metroidvania desafiador que requer paciência e dedicação.
 
 ## Próximos Passos
 Após dominar o básico, explore Forgotten Crossroads e encontre o primeiro chefe.`,
-    author: 'GameMaster',
+    author: 'camilasena-a',
     date: '2024-01-15',
     category: 'Iniciante',
     difficulty: 'Iniciante',
@@ -272,7 +272,7 @@ Após derrotá-lo, você receberá:
 - 200 Geo
 - Acesso a novas áreas
 - Progressão na história`,
-    author: 'BossHunter',
+    author: 'camilasena-a',
     date: '2024-01-20',
     category: 'Chefes',
     difficulty: 'Iniciante',
@@ -320,7 +320,7 @@ Amuletos são itens especiais que modificam suas habilidades e estatísticas. Ca
 - Adapte sua build conforme a situação
 - Experimente diferentes combinações
 - Considere o custo de slots vs benefício`,
-    author: 'BuildMaster',
+    author: 'camilasena-a',
     date: '2024-01-25',
     category: 'Equipamentos',
     difficulty: 'Intermediário',
@@ -367,7 +367,7 @@ Antes de entrar em Deepnest, certifique-se de ter:
 - Use amuletos defensivos
 - Explore sistematicamente
 - Não tenha medo de voltar e tentar novamente`,
-    author: 'ExplorerPro',
+    author: 'camilasena-a',
     date: '2024-02-01',
     category: 'Exploração',
     difficulty: 'Avançado',
@@ -418,7 +418,7 @@ Speedrunning em Hollow Knight é uma arte que combina conhecimento do jogo, exec
 - Guias de técnicas
 - Comunidade de speedrunners
 - Ferramentas de timing`,
-    author: 'SpeedRunner',
+    author: 'camilasena-a',
     date: '2024-02-05',
     category: 'Avançado',
     difficulty: 'Avançado',
@@ -483,7 +483,7 @@ Existem **46 Grubs** para resgatar em todo o jogo.
 - Alguns Grubs estão em áreas secretas
 - Resgate-os conforme explora
 - O Grubfather fica em Forgotten Crossroads`,
-    author: 'Collector',
+    author: 'camilasena-a',
     date: '2024-02-10',
     category: 'Colecionáveis',
     difficulty: 'Intermediário',
