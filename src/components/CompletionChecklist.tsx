@@ -233,23 +233,23 @@ const CompletionChecklist: React.FC<CompletionChecklistProps> = ({ tutorialId })
   const getProgressBarGradient = (percentage: number) => {
     // Se atingiu 112%, mostrar todas as 5 cores
     if (percentage >= 112) {
-      return 'linear-gradient(to right, #6b7280 0%, #4b5563 25%, #1f2937 50%, #c6b7be 75%, #fafbf6 100%)';
+      return 'linear-gradient(to right, #10b981 0%, #059669 25%, #047857 50%, #065f46 75%, #064e3b 100%)';
     }
     // Se atingiu 84%, mostrar 4 cores
     else if (percentage >= 84) {
-      return 'linear-gradient(to right, #6b7280 0%, #4b5563 33%, #1f2937 66%, #c6b7be 100%)';
+      return 'linear-gradient(to right, #10b981 0%, #059669 33%, #047857 66%, #065f46 100%)';
     }
     // Se atingiu 56%, mostrar 3 cores
     else if (percentage >= 56) {
-      return 'linear-gradient(to right, #6b7280 0%, #4b5563 50%, #1f2937 100%)';
+      return 'linear-gradient(to right, #10b981 0%, #059669 50%, #047857 100%)';
     }
     // Se atingiu 28%, mostrar 2 cores
     else if (percentage >= 28) {
-      return 'linear-gradient(to right, #6b7280 0%, #4b5563 100%)';
+      return 'linear-gradient(to right, #10b981 0%, #059669 100%)';
     }
     // Se não atingiu 28%, mostrar apenas 1 cor
     else {
-      return '#6b7280';
+      return '#10b981';
     }
   };
 
