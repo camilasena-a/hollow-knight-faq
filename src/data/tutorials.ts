@@ -203,6 +203,20 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
     readTime: 20
   },
   {
+    id: '8',
+    title: 'Detonado 112%',
+    description: 'Guia completo e detalhado para alcançar 112% de conclusão em Hollow Knight, com estratégias e dicas essenciais.',
+    content: 'Este tutorial utiliza um componente especializado para melhor apresentação visual.',
+    author: 'camilasena-a',
+    date: '2024-12-30',
+    category: 'Avançado',
+    difficulty: 'Avançado',
+    image: '/images/detonadoThumbnail.png',
+    tags: ['112%', 'completar', 'guia', 'completionist', 'avançado'],
+    likes: 0,
+    readTime: 15
+  },
+  {
     id: '1',
     title: 'Guia de localização',
     description: 'Aprenda os conceitos básicos de Hollow Knight, desde controles até mecânicas fundamentais do jogo.',

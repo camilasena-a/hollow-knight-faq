@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Heart, Share2, Clock, User, Calendar, MessageCircle } from 'lucide-react';
 import { tutorials } from '../data/tutorials';
 import CompletionChecklist from '../components/CompletionChecklist';
+import DetonadoGuide from '../components/DetonadoGuide';
 
 const TutorialDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -164,12 +165,16 @@ const TutorialDetail: React.FC = () => {
           {tutorial.id === '7' ? (
             // Checklist interativo para o guia de 112%
             <CompletionChecklist tutorialId={tutorial.id} />
+          ) : tutorial.id === '8' ? (
+            // Componente específico para o Detonado 112%
+            <DetonadoGuide />
           ) : (
             // Conteúdo normal para outros tutoriais
             <div className="bg-hollow-darker rounded-lg p-8">
-              <div className="whitespace-pre-wrap text-gray-300 leading-relaxed">
-                {tutorial.content}
-              </div>
+              <div 
+                className="text-gray-300 leading-relaxed prose prose-invert max-w-none"
+                dangerouslySetInnerHTML={{ __html: tutorial.content.replace(/\n/g, '<br>') }}
+              />
             </div>
           )}
         </div>
