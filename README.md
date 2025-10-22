@@ -160,15 +160,6 @@ Este projeto foi criado como demonstração de um site completo de tutoriais. Pa
 
 Este projeto é apenas para fins educacionais e de demonstração. Hollow Knight é uma marca registrada da Team Cherry.
 
-## 👥 Equipe
-
-- **GameMaster** - Criador de Conteúdo
-- **BossHunter** - Especialista em Chefes
-- **BuildMaster** - Especialista em Builds
-- **ExplorerPro** - Explorador
-- **SpeedRunner** - Speedrunner
-- **Collector** - Colecionador
-
 ---
 
 Feito com ❤️ para a comunidade de Hollow Knight
