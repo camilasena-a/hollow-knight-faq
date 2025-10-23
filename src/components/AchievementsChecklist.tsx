@@ -231,6 +231,35 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
     }
   };
 
+  // Mapeamento correto dos nomes dos arquivos das imagens
+  const imageFileNames = [
+    'negligencia', 'testemunha', 'pureza', 'casalFeliz', 'consolacao', 'vazio', 'professora', 'observador', 'besta', 'cartografo',
+    'conclusao', 'finalizacaoRapida', 'cacadorHabilidoso', 'verdadeiroCacador', 'almaDeAco', 'coracaoDeAco', 'speedrun1', 'speedrun2', 'guerreiro', 'conquistador', 'tolo',
+    'afortunado', 'encantado', 'abencoado',
+    'protegido', 'mascarado',
+    'cheioDeAlma', 'almaDoMundo',
+    'falsidade', 'forca', 'testeResolucao', 'provaResolucao', 'iluminacao', 'mortalidade', 'libertacao', 'paz', 'honra', 'respeito', 'obsessao', 'execucao', 'rivalidade',
+    'sintonia', 'despertar', 'ascensao',
+    'amigoDasLarvas', 'metamorfose',
+    'conexao', 'esperanca',
+    'oCavaleiroVazio', 'irmaosSelados', 'naoSonheMais', 'passagemDaEra',
+    'memoria', 'romanceSombrio',
+    'grandeAtuacao', 'ritual', 'banimento',
+    'irmandade', 'inspiracao', 'foco', 'AlmaESombra', 'abraceOVazio', 'conclusaoPura'
+  ];
+
+  // Função para obter o nome do arquivo da imagem
+  const getAchievementImagePath = (achievementId: string): string => {
+    const achievementIndex = achievementsData.findIndex(achievement => achievement.id === achievementId);
+    if (achievementIndex === -1 || achievementIndex >= imageFileNames.length) {
+      return '/images/conquistas/01-negligencia.jpg';
+    }
+    
+    const imageNumber = (achievementIndex + 1).toString().padStart(2, '0');
+    const fileName = imageFileNames[achievementIndex];
+    return `/images/conquistas/${imageNumber}-${fileName}.jpg`;
+  };
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       {/* Header */}
@@ -342,15 +371,29 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
                       }`}
                       onClick={() => toggleAchievement(achievement.id)}
                     >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="text-lg">
+                      <div className="flex items-start gap-3">
+                        {/* Imagem da conquista */}
+                        <div className="flex-shrink-0">
+                          <img
+                            src={getAchievementImagePath(achievement.id)}
+                            alt={achievement.name}
+                            className="w-12 h-12 rounded-lg object-cover border border-gray-600"
+                            onError={(e) => {
+                              // Fallback para imagem não encontrada
+                              e.currentTarget.src = '/images/conquistas/01-negligencia.jpg';
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Conteúdo da conquista */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="font-semibold text-sm truncate">{achievement.name}</h3>
+                            <span className="text-lg flex-shrink-0 ml-2">
                               {isCompleted ? '✅' : '⭕'}
                             </span>
-                            <h3 className="font-semibold text-sm">{achievement.name}</h3>
                           </div>
-                          <p className="text-xs text-gray-400 mb-2">{achievement.description}</p>
+                          <p className="text-xs text-gray-400 mb-2 line-clamp-2">{achievement.description}</p>
                           <div className="flex items-center gap-2">
                             <span className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(achievement.difficulty)}`}>
                               {achievement.difficulty}
