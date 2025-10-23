@@ -4,6 +4,7 @@ import { ArrowLeft, Heart, Share2, Clock, User, Calendar, MessageCircle } from '
 import { tutorials } from '../data/tutorials';
 import CompletionChecklist from '../components/CompletionChecklist';
 import DetonadoGuide from '../components/DetonadoGuide';
+import AchievementsChecklist from '../components/AchievementsChecklist';
 
 const TutorialDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -168,6 +169,9 @@ const TutorialDetail: React.FC = () => {
           ) : tutorial.id === '8' ? (
             // Componente específico para o Detonado 112%
             <DetonadoGuide />
+          ) : tutorial.id === '9' ? (
+            // Checklist interativo para as Conquistas
+            <AchievementsChecklist tutorialId={tutorial.id} />
           ) : (
             // Conteúdo normal para outros tutoriais
             <div className="bg-hollow-darker rounded-lg p-8">

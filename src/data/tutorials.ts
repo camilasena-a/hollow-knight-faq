@@ -217,6 +217,143 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
     readTime: 15
   },
   {
+    id: '9',
+    title: 'Conquistas',
+    description: 'Lista completa de todas as conquistas disponíveis em Hollow Knight, com descrições e dicas para desbloqueá-las.',
+    content: `# Conquistas de Hollow Knight
+
+## O que são Conquistas?
+As conquistas (achievements) são objetivos especiais que você pode completar durante sua jornada em Hallownest. Cada conquista oferece uma meta específica e recompensas únicas.
+
+### Miscelania
+01. **Negligência** - Deixe Zote morrer
+02. **Testemunha** - Passe um momento final com Quirrel
+03. **Pureza** - Mate o Forjador de Ferrões com o Ferrão Puro
+04. **Casal Feliz** - Permita que o Forjador de Ferrões encontre uma nova vocação
+05. **Consolação** - Traga a paz para a Pranteadora Cinzenta
+06. **Vazio** - Relembre o passado e una o Abismo
+07. **Professora** - Destrua Monomon, a Professora
+08. **Observador** - Destrua Lurien, o Observador
+09. **Besta** - Destrua Herrah, a Besta
+10. **Cartógrafo** - Adquira um mapa de cada área
+11. **Conclusão** - Consiga 100% de conclusão e termine o jogo
+12. **Finalização Rápida** - Consiga 100% de conclusão e termine o jogo em menos de 20 horas
+13. **Caçador Habilidoso** - Registre todas as criaturas de Hallownest no Diário do Caçador
+14. **Verdadeiro Caçador** - Receba a Marca do Caçador
+15. **Alma de Aço** - Finalize o jogo no modo Alma de Aço
+16. **Coração de Aço** - Consiga 100% de conclusão do jogo no modo Alma de Aço
+17. **Speedrun 1** - Complete o jogo em menos de 10 horas
+18. **Speedrun 2** - Complete o Jogo em menos de 5 horas
+19. **Guerreiro** - Complete a Provação do Guerreiro
+20. **Conquistador** - Complete a Provação do Conquistador
+21. **Tolo** - Complete a Provação do Tolo
+
+### Conquistas de Amuletos
+22. **Afortunado** - Adquira seu primeiro Amuleto.
+23. **Encantado** - Adquira metade dos Amuletos de Hallownest
+24. **Abençoado** - Adquira todos os Amuletos e receba a bênção de Salubra
+
+### Fragmentos de Máscara
+25. **Protegido** - Adquira 4 Fragmentos de Máscara
+26. **Mascarado** - Adquira todos os Fragmentos de Máscara
+
+### Fragmentos de Receptáculo
+27. **Cheio de Alma** - Adquira 3 Fragmentos de Receptáculo
+28. **Alma do mundo** - Adquira todos os Fragmentos de Receptáculo
+
+### CHEFES
+29. **Falsidade** - Derrote o Falso Cavaleiro
+30. **Força** - Derrote o Campeão Fracassado
+31. **Teste de Resolução** - Derrote Hornet no Caminho Verde
+32. **Prova de Resolução** -Derrote Hornet na Borda do Reino
+33. **Iluminação** - Derrote o Mestre das Almas
+34. **Mortalidade** - Derrote o Tirano das Almas
+35. **Libertação** - Derrote o Receptáculo Quebrado
+36. **Paz** - Derrote o Parente Perdido
+37. **Honra** - Derrote o Defensor do Esterco
+38. **Respeito** - Derrote os Lordes Louva-a-Deus
+39. **Obsessão** - Derrote o Colecionador
+40. **Execução** - Derrote o Lorde Traidor
+41. **Rivalidade** -Derrote Zote no Coliseu dos Tolos
+
+## Essência
+42. **Sintonia** - Colete 600 Essências
+43. **Despertar** - Colete 1800 Essências e desperte o Ferrão dos Sonhos
+44. **Ascensão** - Colete 2400 Essências e ouça as palavras finais da Vidente
+
+### Larvas
+45. **Amigo das Larvas** - Resgate metade das larvas prisioneiras
+46. **Metamorfose** - Resgate todas as larvas prisioneiras
+
+### Estações de Besouro
+47. **Conexão** - Abra metade das Estações de Besouro de Hallownest
+48. **Esperança** - Abra todas as Estações de Besouro de Hallownest e descubra o Ninho dos Besouros
+
+## Finais
+49. **O Cavaleiro Vazio** - Derrote o Cavaleiro Vazio e torne-se o Receptáculo
+50. **Irmãos Selados** - Derrote o Cavaleiro Vazio com Hornet ao seu lado
+51. **Não Sonhe Mais** - Derrote a Radiância e consuma a luz
+52. **Passagem da Era** - Ajude o Arauto a seguir em frente
+
+### Conquistas de sonhos escondidos
+53. **Memória** - Derrote o Defensor Branco
+54. **Romance Sombrio** - Derrote o Príncipe Cinza Zote
+
+## Conquistas da Trupe Grimm
+55. **Grande Atuação** - Derrote o Líder da Trupe Grimm
+56. **Ritual** - Derrote o Rei do Pesadelo e complete o Ritual
+57. **Banimento** - Bana a Trupe Grimm de Hallownest
+
+### Conquistas de Deus Mestre
+58. **Irmandade** - Complete o Panteão do Mestre
+59. **Inspiração** - Complete o Panteão do Pintor
+60. **Foco** - Complete o Panteão do Sábio
+61. **Alma & Sombra** - Complete o Panteão do Cavaleiro
+62. **Abrace o Vazio** - Ascenda no Panteão de Hallownest e tome seu lugar no pico
+63. **Conclusão Pura** - Conquiste 112% de conclusão e termine o jogo
+
+## Dicas para Conquistas
+
+### Estratégias Gerais
+- **Planejamento**: Planeje sua rota para maximizar conquistas
+- **Paciência**: Algumas conquistas requerem muito tempo
+- **Prática**: Pratique técnicas difíceis regularmente
+- **Comunidade**: Use a comunidade para dicas e ajuda
+
+### Conquistas Difíceis
+- **Sem Dano**: Pratique muito e conheça os padrões dos chefes
+- **Speedrun**: Estude rotas otimizadas
+- **Path of Pain**: Seja paciente e persistente
+- **Panteões**: Domine todos os chefes individualmente primeiro
+
+## Recompensas das Conquistas
+- **Satisfação**: Sensação de realização
+- **Reconhecimento**: Status na comunidade
+- **Desafio**: Novos objetivos para perseguir
+- **Maestria**: Domínio completo do jogo
+
+## Tempo Estimado
+- **Conquistas Básicas**: 20-30 horas
+- **Conquistas Intermediárias**: 40-60 horas
+- **Conquistas Avançadas**: 60-100 horas
+- **Todas as Conquistas**: 100+ horas
+
+## Recursos Úteis
+- Guias de conquistas específicas
+- Mapas interativos
+- Comunidade de Hollow Knight
+- Ferramentas de tracking de progresso
+- Tutoriais de técnicas avançadas`,
+    author: 'camilasena-a',
+    date: '2024-12-30',
+    category: 'Avançado',
+    difficulty: 'Avançado',
+    image: '/images/conquistasThumbnail.png',
+    tags: ['conquistas', 'achievements', 'desafios', 'completar', 'objetivos'],
+    likes: 0,
+    readTime: 25
+  },
+  {
     id: '1',
     title: 'Guia de localização',
     description: 'Aprenda os conceitos básicos de Hollow Knight, desde controles até mecânicas fundamentais do jogo.',
