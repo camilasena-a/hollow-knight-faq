@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste GitHub Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            margin: 0;
+            padding: 50px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 Hollow Knight FAQ</h1>
+    <p>Se você está vendo esta página, o GitHub Pages está funcionando!</p>
+    <div class="status">✅ GitHub Pages Ativo</div>
+    <p>Data/Hora: <span id="datetime"></span></p>
+    
+    <script>
+        document.getElementById('datetime').textContent = new Date().toLocaleString('pt-BR');
+    </script>
+</body>
+</html>
