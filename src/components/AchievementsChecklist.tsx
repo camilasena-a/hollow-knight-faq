@@ -6,7 +6,6 @@ interface AchievementItem {
   description: string;
   category: string;
   difficulty: 'Fácil' | 'Médio' | 'Difícil' | 'Extremo';
-  points: number;
 }
 
 interface AchievementsChecklistProps {
@@ -15,97 +14,96 @@ interface AchievementsChecklistProps {
 
 const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialId }) => {
   const [completedAchievements, setCompletedAchievements] = useState<Set<string>>(new Set());
-  const [totalPoints, setTotalPoints] = useState(0);
   const [isSaving, setIsSaving] = useState(false);
 
   // Dados das conquistas baseadas nas conquistas reais do jogo
   const achievementsData: AchievementItem[] = [
     // Miscelania (1-21)
-    { id: 'negligencia', name: 'Negligência', description: 'Deixe Zote morrer', category: 'Miscelania', difficulty: 'Fácil', points: 10 },
-    { id: 'testemunha', name: 'Testemunha', description: 'Passe um momento final com Quirrel', category: 'Miscelania', difficulty: 'Médio', points: 20 },
-    { id: 'pureza', name: 'Pureza', description: 'Mate o Forjador de Ferrões com o Ferrão Puro', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'casal-feliz', name: 'Casal Feliz', description: 'Permita que o Forjador de Ferrões encontre uma nova vocação', category: 'Miscelania', difficulty: 'Médio', points: 20 },
-    { id: 'consolacao', name: 'Consolação', description: 'Traga a paz para a Pranteadora Cinzenta', category: 'Miscelania', difficulty: 'Médio', points: 20 },
-    { id: 'vazio', name: 'Vazio', description: 'Relembre o passado e una o Abismo', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'professora', name: 'Professora', description: 'Destrua Monomon, a Professora', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'observador', name: 'Observador', description: 'Destrua Lurien, o Observador', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'besta', name: 'Besta', description: 'Destrua Herrah, a Besta', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'cartografo', name: 'Cartógrafo', description: 'Adquira um mapa de cada área', category: 'Miscelania', difficulty: 'Médio', points: 20 },
-    { id: 'conclusao', name: 'Conclusão', description: 'Consiga 100% de conclusão e termine o jogo', category: 'Miscelania', difficulty: 'Difícil', points: 40 },
-    { id: 'finalizacao-rapida', name: 'Finalização Rápida', description: 'Consiga 100% de conclusão e termine o jogo em menos de 20 horas', category: 'Miscelania', difficulty: 'Extremo', points: 50 },
-    { id: 'cacador-habilidoso', name: 'Caçador Habilidoso', description: 'Registre todas as criaturas de Hallownest no Diário do Caçador', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'verdadeiro-cacador', name: 'Verdadeiro Caçador', description: 'Receba a Marca do Caçador', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'alma-de-aco', name: 'Alma de Aço', description: 'Finalize o jogo no modo Alma de Aço', category: 'Miscelania', difficulty: 'Extremo', points: 50 },
-    { id: 'coracao-de-aco', name: 'Coração de Aço', description: 'Consiga 100% de conclusão do jogo no modo Alma de Aço', category: 'Miscelania', difficulty: 'Extremo', points: 60 },
-    { id: 'speedrun-1', name: 'Speedrun 1', description: 'Complete o jogo em menos de 10 horas', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'speedrun-2', name: 'Speedrun 2', description: 'Complete o Jogo em menos de 5 horas', category: 'Miscelania', difficulty: 'Extremo', points: 50 },
-    { id: 'guerreiro', name: 'Guerreiro', description: 'Complete a Provação do Guerreiro', category: 'Miscelania', difficulty: 'Difícil', points: 30 },
-    { id: 'conquistador', name: 'Conquistador', description: 'Complete a Provação do Conquistador', category: 'Miscelania', difficulty: 'Extremo', points: 40 },
-    { id: 'tolo', name: 'Tolo', description: 'Complete a Provação do Tolo', category: 'Miscelania', difficulty: 'Extremo', points: 50 },
+    { id: 'negligencia', name: 'Negligência', description: 'Deixe Zote morrer', category: 'Miscelania', difficulty: 'Fácil' },
+    { id: 'testemunha', name: 'Testemunha', description: 'Passe um momento final com Quirrel', category: 'Miscelania', difficulty: 'Médio' },
+    { id: 'pureza', name: 'Pureza', description: 'Mate o Forjador de Ferrões com o Ferrão Puro', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'casal-feliz', name: 'Casal Feliz', description: 'Permita que o Forjador de Ferrões encontre uma nova vocação', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'consolacao', name: 'Consolação', description: 'Traga a paz para a Pranteadora Cinzenta', category: 'Miscelania', difficulty: 'Médio' },
+    { id: 'vazio', name: 'Vazio', description: 'Relembre o passado e una o Abismo', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'professora', name: 'Professora', description: 'Destrua Monomon, a Professora', category: 'Miscelania', difficulty: 'Médio' },
+    { id: 'observador', name: 'Observador', description: 'Destrua Lurien, o Observador', category: 'Miscelania', difficulty: 'Médio' },
+    { id: 'besta', name: 'Besta', description: 'Destrua Herrah, a Besta', category: 'Miscelania', difficulty: 'Fácil' },
+    { id: 'cartografo', name: 'Cartógrafo', description: 'Adquira um mapa de cada área', category: 'Miscelania', difficulty: 'Médio' },
+    { id: 'conclusao', name: 'Conclusão', description: 'Consiga 100% de conclusão e termine o jogo', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'finalizacao-rapida', name: 'Finalização Rápida', description: 'Consiga 100% de conclusão e termine o jogo em menos de 20 horas', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'cacador-habilidoso', name: 'Caçador Habilidoso', description: 'Registre todas as criaturas de Hallownest no Diário do Caçador', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'verdadeiro-cacador', name: 'Verdadeiro Caçador', description: 'Receba a Marca do Caçador', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'alma-de-aco', name: 'Alma de Aço', description: 'Finalize o jogo no modo Alma de Aço', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'coracao-de-aco', name: 'Coração de Aço', description: 'Consiga 100% de conclusão do jogo no modo Alma de Aço', category: 'Miscelania', difficulty: 'Extremo' },
+    { id: 'speedrun-1', name: 'Speedrun 1', description: 'Complete o jogo em menos de 10 horas', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'speedrun-2', name: 'Speedrun 2', description: 'Complete o Jogo em menos de 5 horas', category: 'Miscelania', difficulty: 'Difícil' },
+    { id: 'guerreiro', name: 'Guerreiro', description: 'Complete a Provação do Guerreiro', category: 'Miscelania', difficulty: 'Fácil' },
+    { id: 'conquistador', name: 'Conquistador', description: 'Complete a Provação do Conquistador', category: 'Miscelania', difficulty: 'Fácil' },
+    { id: 'tolo', name: 'Tolo', description: 'Complete a Provação do Tolo', category: 'Miscelania', difficulty: 'Difícil' },
 
     // Conquistas de Amuletos (22-24)
-    { id: 'afortunado', name: 'Afortunado', description: 'Adquira seu primeiro Amuleto', category: 'Amuletos', difficulty: 'Fácil', points: 10 },
-    { id: 'encantado', name: 'Encantado', description: 'Adquira metade dos Amuletos de Hallownest', category: 'Amuletos', difficulty: 'Médio', points: 20 },
-    { id: 'abencoado', name: 'Abençoado', description: 'Adquira todos os Amuletos e receba a bênção de Salubra', category: 'Amuletos', difficulty: 'Difícil', points: 40 },
+    { id: 'afortunado', name: 'Afortunado', description: 'Adquira seu primeiro Amuleto', category: 'Amuletos', difficulty: 'Fácil' },
+    { id: 'encantado', name: 'Encantado', description: 'Adquira metade dos Amuletos de Hallownest', category: 'Amuletos', difficulty: 'Fácil' },
+    { id: 'abencoado', name: 'Abençoado', description: 'Adquira todos os Amuletos e receba a bênção de Salubra', category: 'Amuletos', difficulty: 'Difícil' },
 
     // Fragmentos de Máscara (25-26)
-    { id: 'protegido', name: 'Protegido', description: 'Adquira 4 Fragmentos de Máscara', category: 'Fragmentos de Máscara', difficulty: 'Fácil', points: 15 },
-    { id: 'mascarado', name: 'Mascarado', description: 'Adquira todos os Fragmentos de Máscara', category: 'Fragmentos de Máscara', difficulty: 'Médio', points: 25 },
+    { id: 'protegido', name: 'Protegido', description: 'Adquira 4 Fragmentos de Máscara', category: 'Fragmentos de Máscara', difficulty: 'Fácil' },
+    { id: 'mascarado', name: 'Mascarado', description: 'Adquira todos os Fragmentos de Máscara', category: 'Fragmentos de Máscara', difficulty: 'Difícil' },
 
     // Fragmentos de Receptáculo (27-28)
-    { id: 'cheio-de-alma', name: 'Cheio de Alma', description: 'Adquira 3 Fragmentos de Receptáculo', category: 'Fragmentos de Receptáculo', difficulty: 'Fácil', points: 15 },
-    { id: 'alma-do-mundo', name: 'Alma do mundo', description: 'Adquira todos os Fragmentos de Receptáculo', category: 'Fragmentos de Receptáculo', difficulty: 'Médio', points: 25 },
+    { id: 'cheio-de-alma', name: 'Cheio de Alma', description: 'Adquira 3 Fragmentos de Receptáculo', category: 'Fragmentos de Receptáculo', difficulty: 'Fácil' },
+    { id: 'alma-do-mundo', name: 'Alma do mundo', description: 'Adquira todos os Fragmentos de Receptáculo', category: 'Fragmentos de Receptáculo', difficulty: 'Difícil' },
 
     // Chefes (29-41)
-    { id: 'falsidade', name: 'Falsidade', description: 'Derrote o Falso Cavaleiro', category: 'Chefes', difficulty: 'Fácil', points: 10 },
-    { id: 'forca', name: 'Força', description: 'Derrote o Campeão Fracassado', category: 'Chefes', difficulty: 'Médio', points: 15 },
-    { id: 'teste-de-resolucao', name: 'Teste de Resolução', description: 'Derrote Hornet no Caminho Verde', category: 'Chefes', difficulty: 'Médio', points: 20 },
-    { id: 'prova-de-resolucao', name: 'Prova de Resolução', description: 'Derrote Hornet na Borda do Reino', category: 'Chefes', difficulty: 'Difícil', points: 30 },
-    { id: 'iluminacao', name: 'Iluminação', description: 'Derrote o Mestre das Almas', category: 'Chefes', difficulty: 'Médio', points: 15 },
-    { id: 'mortalidade', name: 'Mortalidade', description: 'Derrote o Tirano das Almas', category: 'Chefes', difficulty: 'Difícil', points: 25 },
-    { id: 'libertacao', name: 'Libertação', description: 'Derrote o Receptáculo Quebrado', category: 'Chefes', difficulty: 'Difícil', points: 25 },
-    { id: 'paz', name: 'Paz', description: 'Derrote o Parente Perdido', category: 'Chefes', difficulty: 'Médio', points: 15 },
-    { id: 'honra', name: 'Honra', description: 'Derrote o Defensor do Esterco', category: 'Chefes', difficulty: 'Médio', points: 15 },
-    { id: 'respeito', name: 'Respeito', description: 'Derrote os Lordes Louva-a-Deus', category: 'Chefes', difficulty: 'Difícil', points: 25 },
-    { id: 'obsessao', name: 'Obsessão', description: 'Derrote o Colecionador', category: 'Chefes', difficulty: 'Difícil', points: 25 },
-    { id: 'execucao', name: 'Execução', description: 'Derrote o Lorde Traidor', category: 'Chefes', difficulty: 'Difícil', points: 25 },
-    { id: 'rivalidade', name: 'Rivalidade', description: 'Derrote Zote no Coliseu dos Tolos', category: 'Chefes', difficulty: 'Difícil', points: 25 },
+    { id: 'falsidade', name: 'Falsidade', description: 'Derrote o Falso Cavaleiro', category: 'Chefes', difficulty: 'Fácil' },
+    { id: 'forca', name: 'Força', description: 'Derrote o Campeão Fracassado', category: 'Chefes', difficulty: 'Médio' },
+    { id: 'teste-de-resolucao', name: 'Teste de Resolução', description: 'Derrote Hornet no Caminho Verde', category: 'Chefes', difficulty: 'Fácil' },
+    { id: 'prova-de-resolucao', name: 'Prova de Resolução', description: 'Derrote Hornet na Borda do Reino', category: 'Chefes', difficulty: 'Médio' },
+    { id: 'iluminacao', name: 'Iluminação', description: 'Derrote o Mestre das Almas', category: 'Chefes', difficulty: 'Fácil' },
+    { id: 'mortalidade', name: 'Mortalidade', description: 'Derrote o Tirano das Almas', category: 'Chefes', difficulty: 'Médio' },
+    { id: 'libertacao', name: 'Libertação', description: 'Derrote o Receptáculo Quebrado', category: 'Chefes', difficulty: 'Fácil' },
+    { id: 'paz', name: 'Paz', description: 'Derrote o Parente Perdido', category: 'Chefes', difficulty: 'Médio' },
+    { id: 'honra', name: 'Honra', description: 'Derrote o Defensor do Esterco', category: 'Chefes', difficulty: 'Fácil' },
+    { id: 'respeito', name: 'Respeito', description: 'Derrote os Lordes Louva-a-Deus', category: 'Chefes', difficulty: 'Médio' },
+    { id: 'obsessao', name: 'Obsessão', description: 'Derrote o Colecionador', category: 'Chefes', difficulty: 'Fácil' },
+    { id: 'execucao', name: 'Execução', description: 'Derrote o Lorde Traidor', category: 'Chefes', difficulty: 'Médio' },
+    { id: 'rivalidade', name: 'Rivalidade', description: 'Derrote Zote no Coliseu dos Tolos', category: 'Chefes', difficulty: 'Fácil' },
 
     // Essência (42-44)
-    { id: 'sintonia', name: 'Sintonia', description: 'Colete 600 Essências', category: 'Essência', difficulty: 'Médio', points: 20 },
-    { id: 'despertar', name: 'Despertar', description: 'Colete 1800 Essências e desperte o Ferrão dos Sonhos', category: 'Essência', difficulty: 'Difícil', points: 30 },
-    { id: 'ascensao', name: 'Ascensão', description: 'Colete 2400 Essências e ouça as palavras finais da Vidente', category: 'Essência', difficulty: 'Difícil', points: 35 },
+    { id: 'sintonia', name: 'Sintonia', description: 'Colete 600 Essências', category: 'Essência', difficulty: 'Fácil' },
+    { id: 'despertar', name: 'Despertar', description: 'Colete 1800 Essências e desperte o Ferrão dos Sonhos', category: 'Essência', difficulty: 'Médio' },
+    { id: 'ascensao', name: 'Ascensão', description: 'Colete 2400 Essências e ouça as palavras finais da Vidente', category: 'Essência', difficulty: 'Difícil' },
 
     // Larvas (45-46)
-    { id: 'amigo-das-larvas', name: 'Amigo das Larvas', description: 'Resgate metade das larvas prisioneiras', category: 'Larvas', difficulty: 'Fácil', points: 15 },
-    { id: 'metamorfose', name: 'Metamorfose', description: 'Resgate todas as larvas prisioneiras', category: 'Larvas', difficulty: 'Médio', points: 25 },
+    { id: 'amigo-das-larvas', name: 'Amigo das Larvas', description: 'Resgate metade das larvas prisioneiras', category: 'Larvas', difficulty: 'Fácil' },
+    { id: 'metamorfose', name: 'Metamorfose', description: 'Resgate todas as larvas prisioneiras', category: 'Larvas', difficulty: 'Médio' },
 
     // Estações de Besouro (47-48)
-    { id: 'conexao', name: 'Conexão', description: 'Abra metade das Estações de Besouro de Hallownest', category: 'Estações de Besouro', difficulty: 'Fácil', points: 15 },
-    { id: 'esperanca', name: 'Esperança', description: 'Abra todas as Estações de Besouro de Hallownest e descubra o Ninho dos Besouros', category: 'Estações de Besouro', difficulty: 'Médio', points: 25 },
+    { id: 'conexao', name: 'Conexão', description: 'Abra metade das Estações de Besouro de Hallownest', category: 'Estações de Besouro', difficulty: 'Fácil' },
+    { id: 'esperanca', name: 'Esperança', description: 'Abra todas as Estações de Besouro de Hallownest e descubra o Ninho dos Besouros', category: 'Estações de Besouro', difficulty: 'Fácil' },
 
     // Finais (49-52)
-    { id: 'cavaleiro-vazio', name: 'O Cavaleiro Vazio', description: 'Derrote o Cavaleiro Vazio e torne-se o Receptáculo', category: 'Finais', difficulty: 'Difícil', points: 40 },
-    { id: 'irmaos-selados', name: 'Irmãos Selados', description: 'Derrote o Cavaleiro Vazio com Hornet ao seu lado', category: 'Finais', difficulty: 'Difícil', points: 40 },
-    { id: 'nao-sonhe-mais', name: 'Não Sonhe Mais', description: 'Derrote a Radiância e consuma a luz', category: 'Finais', difficulty: 'Extremo', points: 50 },
-    { id: 'passagem-da-era', name: 'Passagem da Era', description: 'Ajude o Arauto a seguir em frente', category: 'Finais', difficulty: 'Difícil', points: 35 },
+    { id: 'cavaleiro-vazio', name: 'O Cavaleiro Vazio', description: 'Derrote o Cavaleiro Vazio e torne-se o Receptáculo', category: 'Finais', difficulty: 'Difícil' },
+    { id: 'irmaos-selados', name: 'Irmãos Selados', description: 'Derrote o Cavaleiro Vazio com Hornet ao seu lado', category: 'Finais', difficulty: 'Difícil' },
+    { id: 'nao-sonhe-mais', name: 'Não Sonhe Mais', description: 'Derrote a Radiância e consuma a luz', category: 'Finais', difficulty: 'Extremo' },
+    { id: 'passagem-da-era', name: 'Passagem da Era', description: 'Ajude o Arauto a seguir em frente', category: 'Finais', difficulty: 'Difícil' },
 
     // Conquistas de sonhos escondidos (53-54)
-    { id: 'memoria', name: 'Memória', description: 'Derrote o Defensor Branco', category: 'Sonhos Escondidos', difficulty: 'Difícil', points: 30 },
-    { id: 'romance-sombrio', name: 'Romance Sombrio', description: 'Derrote o Príncipe Cinza Zote', category: 'Sonhos Escondidos', difficulty: 'Difícil', points: 30 },
+    { id: 'memoria', name: 'Memória', description: 'Derrote o Defensor Branco', category: 'Sonhos Escondidos', difficulty: 'Médio' },
+    { id: 'romance-sombrio', name: 'Romance Sombrio', description: 'Derrote o Príncipe Cinza Zote', category: 'Sonhos Escondidos', difficulty: 'Difícil' },
 
     // Conquistas da Trupe Grimm (55-57)
-    { id: 'grande-atucao', name: 'Grande Atuação', description: 'Derrote o Líder da Trupe Grimm', category: 'Trupe Grimm', difficulty: 'Difícil', points: 30 },
-    { id: 'ritual', name: 'Ritual', description: 'Derrote o Rei do Pesadelo e complete o Ritual', category: 'Trupe Grimm', difficulty: 'Extremo', points: 45 },
-    { id: 'banimento', name: 'Banimento', description: 'Bana a Trupe Grimm de Hallownest', category: 'Trupe Grimm', difficulty: 'Difícil', points: 30 },
+    { id: 'grande-atucao', name: 'Grande Atuação', description: 'Derrote o Líder da Trupe Grimm', category: 'Trupe Grimm', difficulty: 'Médio' },
+    { id: 'ritual', name: 'Ritual', description: 'Derrote o Rei do Pesadelo e complete o Ritual', category: 'Trupe Grimm', difficulty: 'Difícil' },
+    { id: 'banimento', name: 'Banimento', description: 'Bana a Trupe Grimm de Hallownest', category: 'Trupe Grimm', difficulty: 'Médio' },
 
     // Conquistas de Deus Mestre (58-63)
-    { id: 'irmandade', name: 'Irmandade', description: 'Complete o Panteão do Mestre', category: 'Deus Mestre', difficulty: 'Extremo', points: 50 },
-    { id: 'inspiracao', name: 'Inspiração', description: 'Complete o Panteão do Pintor', category: 'Deus Mestre', difficulty: 'Extremo', points: 55 },
-    { id: 'foco', name: 'Foco', description: 'Complete o Panteão do Sábio', category: 'Deus Mestre', difficulty: 'Extremo', points: 60 },
-    { id: 'alma-sombra', name: 'Alma & Sombra', description: 'Complete o Panteão do Cavaleiro', category: 'Deus Mestre', difficulty: 'Extremo', points: 65 },
-    { id: 'abrace-o-vazio', name: 'Abrace o Vazio', description: 'Ascenda no Panteão de Hallownest e tome seu lugar no pico', category: 'Deus Mestre', difficulty: 'Extremo', points: 80 },
-    { id: 'conclusao-pura', name: 'Conclusão Pura', description: 'Conquiste 112% de conclusão e termine o jogo', category: 'Deus Mestre', difficulty: 'Extremo', points: 100 }
+    { id: 'irmandade', name: 'Irmandade', description: 'Complete o Panteão do Mestre', category: 'Deus Mestre', difficulty: 'Médio' },
+    { id: 'inspiracao', name: 'Inspiração', description: 'Complete o Panteão do Pintor', category: 'Deus Mestre', difficulty: 'Médio' },
+    { id: 'foco', name: 'Foco', description: 'Complete o Panteão do Sábio', category: 'Deus Mestre', difficulty: 'Difícil' },
+    { id: 'alma-sombra', name: 'Alma & Sombra', description: 'Complete o Panteão do Cavaleiro', category: 'Deus Mestre', difficulty: 'Difícil' },
+    { id: 'abrace-o-vazio', name: 'Abrace o Vazio', description: 'Ascenda no Panteão de Hallownest e tome seu lugar no pico', category: 'Deus Mestre', difficulty: 'Extremo' },
+    { id: 'conclusao-pura', name: 'Conclusão Pura', description: 'Conquiste 112% de conclusão e termine o jogo', category: 'Deus Mestre', difficulty: 'Extremo' }
   ];
 
   // Carregar progresso salvo
@@ -117,13 +115,6 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
     }
   }, [tutorialId]);
 
-  // Calcular pontos totais
-  useEffect(() => {
-    const points = achievementsData
-      .filter(achievement => completedAchievements.has(achievement.id))
-      .reduce((total, achievement) => total + achievement.points, 0);
-    setTotalPoints(points);
-  }, [completedAchievements]);
 
   // Salvar progresso
   const saveProgress = async () => {
@@ -176,7 +167,6 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
   const totalAchievements = achievementsData.length;
   const completedCount = completedAchievements.size;
   const completionPercentage = Math.round((completedCount / totalAchievements) * 100);
-  const maxPoints = achievementsData.reduce((total, achievement) => total + achievement.points, 0);
 
   // Função para criar gradiente da barra de progresso baseado na porcentagem
   const getProgressBarGradient = (percentage: number) => {
@@ -271,7 +261,7 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
       </div>
 
       {/* Estatísticas */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-hollow-darker rounded-lg p-4 text-center">
           <div className="text-2xl font-bold text-white">{completedCount}</div>
           <div className="text-sm text-gray-400">Conquistas Completas</div>
@@ -283,10 +273,6 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
         <div className="bg-hollow-darker rounded-lg p-4 text-center">
           <div className="text-2xl font-bold text-white">{completionPercentage}%</div>
           <div className="text-sm text-gray-400">Progresso</div>
-        </div>
-        <div className="bg-hollow-darker rounded-lg p-4 text-center">
-          <div className="text-2xl font-bold text-white">{totalPoints}</div>
-          <div className="text-sm text-gray-400">Pontos ({maxPoints} total)</div>
         </div>
       </div>
 
@@ -397,9 +383,6 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
                           <div className="flex items-center gap-2">
                             <span className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(achievement.difficulty)}`}>
                               {achievement.difficulty}
-                            </span>
-                            <span className="text-xs text-yellow-400 font-medium">
-                              {achievement.points} pts
                             </span>
                           </div>
                         </div>
