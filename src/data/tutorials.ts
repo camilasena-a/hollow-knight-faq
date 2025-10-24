@@ -197,7 +197,7 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
     date: '2024-02-15',
     category: 'Avançado',
     difficulty: 'Avançado',
-    image: '/images/112thumbnail.png',
+    image: './images/112thumbnail.png',
     tags: ['112%', 'completar', 'guia', 'colecionáveis', 'chefes'],
     likes: 312,
     readTime: 20
@@ -211,7 +211,7 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
     date: '2024-12-30',
     category: 'Avançado',
     difficulty: 'Avançado',
-    image: '/images/detonadoThumbnail.png',
+    image: './images/detonadoThumbnail.png',
     tags: ['112%', 'completar', 'guia', 'completionist', 'avançado'],
     likes: 0,
     readTime: 15
@@ -348,7 +348,7 @@ As conquistas (achievements) são objetivos especiais que você pode completar d
     date: '2024-12-30',
     category: 'Avançado',
     difficulty: 'Avançado',
-    image: '/images/conquistasThumbnail.png',
+    image: './images/conquistasThumbnail.png',
     tags: ['conquistas', 'achievements', 'desafios', 'completar', 'objetivos'],
     likes: 0,
     readTime: 25
@@ -387,7 +387,7 @@ Após dominar o básico, explore Forgotten Crossroads e encontre o primeiro chef
     date: '2024-01-15',
     category: 'Iniciante',
     difficulty: 'Iniciante',
-    image: '/images/locationThumbnail.png',
+    image: './images/locationThumbnail.png',
     tags: ['iniciante', 'controles', 'básico'],
     likes: 127,
     readTime: 8
@@ -427,7 +427,7 @@ Após derrotá-lo, você receberá:
     date: '2024-01-20',
     category: 'Chefes',
     difficulty: 'Iniciante',
-    image: '/images/speedRunThumbnail.webp',
+    image: './images/speedRunThumbnail.webp',
     tags: ['chefe', 'false-knight', 'estratégia'],
     likes: 89,
     readTime: 6

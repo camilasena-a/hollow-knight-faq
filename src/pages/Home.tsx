@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/header.jpg)`,
+            backgroundImage: `url(./images/header.jpg)`,
             opacity: 0.6
           }}
         />

@@ -34,7 +34,7 @@ const DetonadoGuide: React.FC = () => {
         "Ativação do besouro para acesso a novas áreas",
         "Primeiro chefe principal derrotado"
       ],
-      image: "/images/mapa1.png",
+      image: "./images/mapa1.png",
       description: `Assim que iniciar o jogo, siga para a direita abrindo o caminho pelos portões e eliminando os pequenos inimigos que surgem até chegar às plataformas elevadas. Suba em cada plataforma, seguindo o caminho até chegar ao topo da área. Ao subir todas as plataformas, você chegará ao Lifeblood Rom, siga para a direita e atravesse o portão. O chão se quebrará no momento em que você atravessar o portão, caia até o final e siga para a direita. Siga saltando sobre os espinhos e desça para encontrar um baú. Este é o primeiro amuleto do jogo, a Fúria dos Caídos.
 
 Retorne pela esquerda e suba novamente as plataformas refazendo o caminho feito anteriormente, ao chegar novamente no buraco aberto, caia e siga pelo caminho acima a direita até chegar no grande portão para Dirtmouth. Ao chegar em Dirtmouth, siga para a direita até cair no poço para a encruzilhada esquecida. Nesse momento, siga para a esquerda, desça por todas as plataformas na área seguinte, encontre Cornifer e compre um mapa. Em seguida, siga para a direita na saída abaixo de Cornifer. Lute contra os Aspids caçadores na área seguinte e siga para a direita por todas as áreas até encontrar a placa do besouro. Ao encontrar a placa, suba na área seguinte, entre na primeira saída à esquerda para ativar o besouro, retorne para a área anterior e entre na segunda área a esquerda para enfrentar o falso cavaleiro.

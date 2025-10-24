@@ -242,12 +242,12 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
   const getAchievementImagePath = (achievementId: string): string => {
     const achievementIndex = achievementsData.findIndex(achievement => achievement.id === achievementId);
     if (achievementIndex === -1 || achievementIndex >= imageFileNames.length) {
-      return '/images/conquistas/01-negligencia.jpg';
+      return './images/conquistas/01-negligencia.jpg';
     }
     
     const imageNumber = (achievementIndex + 1).toString().padStart(2, '0');
     const fileName = imageFileNames[achievementIndex];
-    return `/images/conquistas/${imageNumber}-${fileName}.jpg`;
+    return `./images/conquistas/${imageNumber}-${fileName}.jpg`;
   };
 
   return (
@@ -366,7 +366,7 @@ const AchievementsChecklist: React.FC<AchievementsChecklistProps> = ({ tutorialI
                             className="w-12 h-12 rounded-lg object-cover border border-gray-600"
                             onError={(e) => {
                               // Fallback para imagem não encontrada
-                              e.currentTarget.src = '/images/conquistas/01-negligencia.jpg';
+                              e.currentTarget.src = './images/conquistas/01-negligencia.jpg';
                             }}
                           />
                         </div>

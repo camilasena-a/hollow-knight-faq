@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           {/* Logo (somente texto-imagem) */}
           <Link to="/" className="flex items-center">
             <img
-              src="/images/logotipo-texto.png"
+              src="./images/logotipo-texto.png"
               alt="Hollow Knight FAQ"
               className="h-8 w-auto md:h-9 lg:h-10"
             />
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
                 }`}
               >
                 <img
-                  src="/images/logotipo.png"
+                  src="./images/logotipo.png"
                   alt="Hollow Knight - Logotipo"
                   className={`h-5 w-auto transition-opacity duration-200 ${
                     isActive(item.href)
