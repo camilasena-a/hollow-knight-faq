@@ -267,7 +267,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
       {/* Estatísticas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="bg-hollow-darker rounded-lg p-4 text-center">
-          <div className="text-2xl font-bold text-white">{incompleteCreatures.length}</div>
+          <div className="text-2xl font-bold text-white">168</div>
           <div className="text-sm text-gray-400">Criaturas na Lista</div>
         </div>
         <div className="bg-hollow-darker rounded-lg p-4 text-center">
