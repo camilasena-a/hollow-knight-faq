@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Users, BookOpen, Trophy } from 'lucide-react';
+import { ArrowRight, Star, BookOpen, Trophy, Heart } from 'lucide-react';
 import TutorialCard from '../components/TutorialCard';
 import { tutorials } from '../data/tutorials';
 
@@ -8,7 +8,6 @@ const Home: React.FC = () => {
   const featuredTutorials = tutorials.slice(0, 3);
   const stats = [
     { icon: BookOpen, label: 'Tutoriais', value: tutorials.length },
-    { icon: Users, label: 'Autores', value: '12' },
     { icon: Star, label: 'Avaliações', value: '4.9' },
     { icon: Trophy, label: 'Comunidade', value: '2.5K' },
   ];
@@ -38,19 +37,13 @@ const Home: React.FC = () => {
               Descubra todos os segredos de Hallownest com nossos tutoriais detalhados, 
               guias de chefes e estratégias avançadas. Domine o mundo de Hollow Knight!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
                 to="/tutoriais"
                 className="btn-primary inline-flex items-center space-x-2 text-lg px-8 py-3"
               >
                 <span>Explorar Tutoriais</span>
                 <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/sobre"
-                className="btn-secondary inline-flex items-center space-x-2 text-lg px-8 py-3"
-              >
-                <span>Saiba Mais</span>
               </Link>
             </div>
           </div>
@@ -60,7 +53,7 @@ const Home: React.FC = () => {
       {/* Stats Section */}
       <section className="py-16 bg-hollow-darker">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -136,7 +129,7 @@ const Home: React.FC = () => {
 
             <div className="text-center animate-slide-up" style={{ animationDelay: '0.1s' }}>
               <div className="bg-hollow-gold rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-hollow-dark" />
+                <Heart className="w-8 h-8 text-hollow-dark" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">
                 Comunidade Ativa

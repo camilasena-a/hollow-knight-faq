@@ -5,6 +5,7 @@ import { tutorials } from '../data/tutorials';
 import CompletionChecklist from '../components/CompletionChecklist';
 import DetonadoGuide from '../components/DetonadoGuide';
 import AchievementsChecklist from '../components/AchievementsChecklist';
+import HunterJournalChecklist from '../components/HunterJournalChecklist';
 
 const TutorialDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -172,6 +173,9 @@ const TutorialDetail: React.FC = () => {
           ) : tutorial.id === '9' ? (
             // Checklist interativo para as Conquistas
             <AchievementsChecklist tutorialId={tutorial.id} />
+          ) : tutorial.id === '10' ? (
+            // Checklist interativo para o Diário do Caçador
+            <HunterJournalChecklist tutorialId={tutorial.id} />
           ) : (
             // Conteúdo normal para outros tutoriais
             <div className="bg-hollow-darker rounded-lg p-8">

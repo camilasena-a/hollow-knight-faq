@@ -193,7 +193,7 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
 - Guias de localização de colecionáveis
 - Comunidade de Hollow Knight
 - Ferramentas de tracking de progresso`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-02-15',
     category: 'Avançado',
     difficulty: 'Avançado',
@@ -207,7 +207,7 @@ Hollow Knight tem um sistema de porcentagem que vai além de 100%, chegando a 11
     title: 'Detonado 112%',
     description: 'Guia completo e detalhado para alcançar 112% de conclusão em Hollow Knight, com estratégias e dicas essenciais.',
     content: 'Este tutorial utiliza um componente especializado para melhor apresentação visual.',
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-12-30',
     category: 'Avançado',
     difficulty: 'Avançado',
@@ -344,7 +344,7 @@ As conquistas (achievements) são objetivos especiais que você pode completar d
 - Comunidade de Hollow Knight
 - Ferramentas de tracking de progresso
 - Tutoriais de técnicas avançadas`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-12-30',
     category: 'Avançado',
     difficulty: 'Avançado',
@@ -352,6 +352,218 @@ As conquistas (achievements) são objetivos especiais que você pode completar d
     tags: ['conquistas', 'achievements', 'desafios', 'completar', 'objetivos'],
     likes: 0,
     readTime: 25
+  },
+  {
+    id: '10',
+    title: 'Diário do Caçador',
+    description: 'Guia completo sobre o Diário do Caçador, como encontrar todas as criaturas e desbloquear a Marca do Caçador.',
+    content: `# Diário do Caçador
+
+## O que é o Diário do Caçador?
+O Diário do Caçador é um item especial que permite registrar informações sobre todas as criaturas de Hallownest. É obtido ao encontrar o Caçador em Greenpath.
+
+## Como Funciona
+- **Registro Automático**: Criaturas são registradas automaticamente ao serem derrotadas
+- **Informações Detalhadas**: Cada entrada contém estatísticas e descrições únicas
+- **Progresso Visual**: Acompanhe quantas criaturas você já encontrou
+- **Recompensas**: Desbloqueie conquistas e a Marca do Caçador
+
+## Localização do Caçador
+O Caçador está localizado em **Greenpath**, em uma área escondida:
+1. Entre em Greenpath pela Forgotten Crossroads
+2. Vá para a direita até encontrar uma área com água
+3. Use o dash para atravessar a água
+4. Continue até encontrar uma sala com o Caçador
+
+## Criaturas por Área
+
+### Forgotten Crossroads (15 criaturas)
+1. **Aspid Hunter** - Inimigo voador agressivo
+2. **Aspid Mother** - Versão maior que cria Aspids menores
+3. **Baldur** - Inimigo blindado que se enrola
+4. **Crawlid** - Pequeno inimigo que se move pelo chão
+5. **Dirtcarver** - Emerge do chão para atacar
+6. **Flying Sentry** - Sentinela voadora
+7. **Gruzzer** - Inimigo voador básico
+8. **Gruz Mother** - Chefe que cria Gruzzers
+9. **Husk Bully** - Versão maior do Husk Guard
+10. **Husk Guard** - Guarda com escudo
+11. **Husk Hornhead** - Com chifres afiados
+12. **Husk Sentry** - Sentinela estacionária
+13. **Leaping Husk** - Pula em direção ao jogador
+14. **Tiktik** - Pequeno inimigo que se move devagar
+15. **Vengefly** - Inimigo voador que ataca em grupo
+
+### Greenpath (12 criaturas)
+1. **Aluba** - Criatura pacífica que voa
+2. **Baldur** - Também encontrado aqui
+3. **Crawlid** - Versão local
+4. **Durandoo** - Inimigo que se move em padrões
+5. **Duranda** - Versão maior do Durandoo
+6. **Goam** - Inimigo que se esconde nas paredes
+7. **Gorgeous Husk** - Versão decorada do Husk
+8. **Gruzzer** - Versão local
+9. **Moss Knight** - Cavaleiro com armadura de musgo
+10. **Mosscreep** - Pequeno inimigo de musgo
+11. **Mossfly** - Inimigo voador de musgo
+12. **Squit** - Inimigo aquático
+
+### Fungal Wastes (10 criaturas)
+1. **Fungling** - Pequeno fungo que se move
+2. **Fungoon** - Versão maior que explode
+3. **Fungus Core** - Núcleo de fungo
+4. **Mantis** - Inimigo ágil com garras
+5. **Mantis Traitor** - Versão corrompida
+6. **Mantis Warrior** - Versão mais forte
+7. **Mantis Youth** - Versão jovem
+8. **Shrumal Ogre** - Ogro de cogumelo
+9. **Shrumal Warrior** - Guerreiro de cogumelo
+10. **Sporg** - Inimigo que cospe esporos
+
+### City of Tears (18 criaturas)
+1. **City Guard** - Guarda da cidade
+2. **Corpse Creeper** - Inimigo que se esconde em cadáveres
+3. **Crystal Crawler** - Inimigo de cristal
+4. **Crystal Hunter** - Caçador de cristal
+5. **Dung Defender** - Defensor do esterco (chefe)
+6. **Entombed Husk** - Husk enterrado
+7. **Fool Eater** - Inimigo do coliseu
+8. **Giant Fly** - Mosca gigante
+9. **Great Husk Sentry** - Sentinela gigante
+10. **Heavy Fool** - Inimigo pesado do coliseu
+11. **Husk Dandy** - Husk elegante
+12. **Husk Warrior** - Guerreiro husk
+13. **Lance Sentry** - Sentinela com lança
+14. **Mistake** - Criatura deformada
+15. **Nailmasters Oro** - Mestre do ferrão
+16. **Nailmasters Sheo** - Mestre do ferrão
+17. **Nailmasters Mato** - Mestre do ferrão
+18. **Soul Warrior** - Guerreiro das almas
+
+### Crystal Peak (8 criaturas)
+1. **Crystal Crawler** - Versão local
+2. **Crystal Fly** - Inimigo voador de cristal
+3. **Crystal Guardian** - Guardião de cristal
+4. **Crystal Hunter** - Versão local
+5. **Crystal Mite** - Pequeno ácaro de cristal
+6. **Crystal Warrior** - Guerreiro de cristal
+7. **Garpede** - Criatura que se move pelos túneis
+8. **Laser Turret** - Torre de laser
+
+### Resting Grounds (5 criaturas)
+1. **Glowing Womb** - Inimigo que cria criaturas
+2. **Grimmkin Novice** - Iniciante da trupe Grimm
+3. **Grimmkin Nightmare** - Pesadelo da trupe Grimm
+4. **Grimmkin Troupe** - Membro da trupe Grimm
+5. **Xero** - Guerreiro dos sonhos
+
+### Ancient Basin (6 criaturas)
+1. **Brooding Mawlek** - Mawlek incubador
+2. **Garpede** - Versão local
+3. **Infected Balloon** - Balão infectado
+4. **Mawlek** - Inimigo com garras
+5. **Pale Lurker** - Lurk pálido
+6. **Royal Retainer** - Retentor real
+
+### Kingdom's Edge (7 criaturas)
+1. **Belfly** - Inimigo que explode
+2. **Great Hopper** - Saltador gigante
+3. **Hopper** - Saltador básico
+4. **Primal Aspid** - Aspid primitivo
+5. **Shade** - Sombra do jogador
+6. **Shade Soul** - Alma sombria
+7. **Shade Lord** - Senhor das sombras
+
+### Deepnest (9 criaturas)
+1. **Corpse Creeper** - Versão local
+2. **Dirtcarver** - Versão local
+3. **Garpede** - Versão local
+4. **Lightseed** - Semente de luz
+5. **Maskfly** - Inimigo voador com máscara
+6. **Nosk** - Chefe que imita o jogador
+7. **Shardmite** - Ácaro de fragmento
+8. **Stalking Devout** - Devoto perseguidor
+9. **Weaver** - Tecelão
+
+### Queen's Gardens (6 criaturas)
+1. **Durandoo** - Versão local
+2. **Duranda** - Versão local
+3. **Mantis Traitor** - Versão local
+4. **Moss Knight** - Versão local
+5. **Spiny Husk** - Husk com espinhos
+6. **Traitor Lord** - Senhor traidor (chefe)
+
+### Howling Cliffs (4 criaturas)
+1. **Gruzzer** - Versão local
+2. **Husk Guard** - Versão local
+3. **Vengefly** - Versão local
+4. **Zote** - Personagem especial
+
+### Colosseum of Fools (3 criaturas)
+1. **Fool Eater** - Versão do coliseu
+2. **Heavy Fool** - Versão do coliseu
+3. **Zote** - Versão do coliseu
+
+## Conquistas Relacionadas
+
+### Caçador Habilidoso
+- **Requisito**: Registre todas as criaturas no Diário
+- **Recompensa**: Conquista desbloqueada
+- **Dica**: Algumas criaturas só aparecem em situações específicas
+
+### Verdadeiro Caçador
+- **Requisito**: Complete o Diário e fale com o Caçador
+- **Recompensa**: Marca do Caçador (Amuleto)
+- **Efeito**: Aumenta o dano contra inimigos não-chefes
+
+## Dicas Importantes
+
+### Para Completar o Diário
+- **Explore sistematicamente**: Visite todas as áreas
+- **Derrote todos os inimigos**: Alguns só aparecem uma vez
+- **Volte às áreas**: Novos inimigos podem aparecer
+- **Use o mapa**: Marque áreas não exploradas
+- **Seja paciente**: Algumas criaturas são raras
+
+### Criaturas Especiais
+- **Zote**: Aparece em múltiplas localizações
+- **Nailmasters**: Só aparecem após interações específicas
+- **Grimmkin**: Relacionados à Trupe Grimm
+- **Shade**: Aparece quando você morre
+
+### Estratégias de Caça
+- **Mantenha o Diário equipado**: Para verificar progresso
+- **Anote localizações**: De criaturas difíceis de encontrar
+- **Use builds de exploração**: Para facilitar a busca
+- **Seja metódico**: Uma área por vez
+
+## Recompensas Finais
+- **Conquista "Caçador Habilidoso"**
+- **Conquista "Verdadeiro Caçador"**
+- **Amuleto "Marca do Caçador"**
+- **Conhecimento completo de Hallownest**
+- **Satisfação de ter descoberto tudo**
+
+## Tempo Estimado
+- **Exploração básica**: 10-15 horas
+- **Caça sistemática**: 5-10 horas
+- **Criaturas raras**: 2-5 horas
+- **Total**: 15-30 horas
+
+## Recursos Úteis
+- Mapas interativos com localizações
+- Guias de criaturas específicas
+- Comunidade de Hollow Knight
+- Ferramentas de tracking de progresso
+- Listas de verificação online`,
+    author: 'camilasena',
+    date: '2024-12-30',
+    category: 'Colecionáveis',
+    difficulty: 'Intermediário',
+    image: './images/diarioCacadorThumbnail.png',
+    tags: ['diário do caçador', 'colecionáveis', 'criaturas', 'exploração', 'conquistas'],
+    likes: 0,
+    readTime: 18
   },
   {
     id: '1',
@@ -383,7 +595,7 @@ Hollow Knight é um metroidvania desafiador que requer paciência e dedicação.
 
 ## Próximos Passos
 Após dominar o básico, explore Forgotten Crossroads e encontre o primeiro chefe.`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-01-15',
     category: 'Iniciante',
     difficulty: 'Iniciante',
@@ -423,7 +635,7 @@ Após derrotá-lo, você receberá:
 - 200 Geo
 - Acesso a novas áreas
 - Progressão na história`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-01-20',
     category: 'Chefes',
     difficulty: 'Iniciante',
@@ -471,7 +683,7 @@ Amuletos são itens especiais que modificam suas habilidades e estatísticas. Ca
 - Adapte sua build conforme a situação
 - Experimente diferentes combinações
 - Considere o custo de slots vs benefício`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-01-25',
     category: 'Equipamentos',
     difficulty: 'Intermediário',
@@ -518,7 +730,7 @@ Antes de entrar em Deepnest, certifique-se de ter:
 - Use amuletos defensivos
 - Explore sistematicamente
 - Não tenha medo de voltar e tentar novamente`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-02-01',
     category: 'Exploração',
     difficulty: 'Avançado',
@@ -569,7 +781,7 @@ Speedrunning em Hollow Knight é uma arte que combina conhecimento do jogo, exec
 - Guias de técnicas
 - Comunidade de speedrunners
 - Ferramentas de timing`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-02-05',
     category: 'Avançado',
     difficulty: 'Avançado',
@@ -634,7 +846,7 @@ Existem **46 Grubs** para resgatar em todo o jogo.
 - Alguns Grubs estão em áreas secretas
 - Resgate-os conforme explora
 - O Grubfather fica em Forgotten Crossroads`,
-    author: 'camilasena-a',
+    author: 'camilasena',
     date: '2024-02-10',
     category: 'Colecionáveis',
     difficulty: 'Intermediário',
