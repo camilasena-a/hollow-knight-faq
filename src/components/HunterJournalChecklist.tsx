@@ -308,7 +308,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           </div>
         </div>
         <p className="text-center text-gray-400 mt-3 text-lg">
-          {completedCount}/{totalCreatures} concluído
+          {completedCount}/168 concluído
         </p>
       </div>
 
