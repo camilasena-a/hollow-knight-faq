@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "./static/css/main.3056b370.css",
+    "main.js": "./static/js/main.2e495477.js",
+    "static/media/Trajan Pro Regular.ttf": "./static/media/Trajan Pro Regular.7b34a885eb3b7f74c691.ttf",
+    "index.html": "./index.html",
+    "main.3056b370.css.map": "./static/css/main.3056b370.css.map",
+    "main.2e495477.js.map": "./static/js/main.2e495477.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3056b370.css",
+    "static/js/main.2e495477.js"
+  ]
+}
