@@ -187,7 +187,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const [completedCreatures, setCompletedCreatures] = useState<Set<string>>(new Set());
   const [isSaving, setIsSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortOrder, setSortOrder] = useState<'az' | 'za'>('az');
+  const [sortOrder, setSortOrder] = useState<'az' | 'za' | 'status'>('az');
 
   // Carregar progresso salvo
   useEffect(() => {
@@ -260,13 +260,28 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   // Separar criaturas em completas e incompletas
   const incompleteCreatures = useMemo(() => {
     const list = filteredCreatures.filter(c => !completedCreatures.has(c.id));
+    if (sortOrder === 'status') {
+      return list.sort((a, b) => a.name.localeCompare(b.name));
+    }
     return list.sort((a, b) => sortOrder === 'az' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
   }, [filteredCreatures, completedCreatures, sortOrder]);
 
   const completeCreatures = useMemo(() => {
     const list = filteredCreatures.filter(c => completedCreatures.has(c.id));
+    if (sortOrder === 'status') {
+      return list.sort((a, b) => a.name.localeCompare(b.name));
+    }
     return list.sort((a, b) => sortOrder === 'az' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
   }, [filteredCreatures, completedCreatures, sortOrder]);
+
+  // Lista combinada (status: incompletos primeiro)
+  const combinedByStatus = useMemo(() => {
+    if (sortOrder !== 'status') return [] as CreatureItem[];
+    return [
+      ...incompleteCreatures,
+      ...completeCreatures,
+    ];
+  }, [sortOrder, incompleteCreatures, completeCreatures]);
 
   // Calcular progresso
   const totalCreatures = creaturesData.length;
@@ -316,14 +331,24 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           placeholder="Buscar por criatura ou área..."
           className="flex-1 md:flex-none md:w-80 px-3 py-2 rounded-lg bg-hollow-darker text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
+        {searchQuery && (
+          <button
+            type="button"
+            onClick={() => setSearchQuery('')}
+            className="px-3 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-500 transition-colors duration-200 text-sm"
+          >
+            Limpar busca
+          </button>
+        )}
         <select
           value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as 'az' | 'za')}
+          onChange={(e) => setSortOrder(e.target.value as 'az' | 'za' | 'status')}
           className="px-3 py-2 rounded-lg bg-hollow-darker text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
           aria-label="Ordenar"
         >
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
+          <option value="status">Status (incompletos primeiro)</option>
         </select>
       </div>
 
@@ -347,77 +372,148 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
         </p>
       </div>
 
-      {/* Grid de duas colunas */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Coluna de Incompletos */}
-        <div className="bg-hollow-darker rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
-            Lista de Criaturas ({incompleteCreatures.length})
-          </h2>
-          <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
-            {incompleteCreatures.length === 0 ? (
-              <div className="text-center py-12 text-gray-500">
-                <img src="/images/hunterMark.png" alt="Hunter's Mark" className="w-16 h-16 mx-auto mb-2" />
-                <p>Todas as criaturas foram concluídas!</p>
-              </div>
-            ) : (
-              incompleteCreatures.map((creature) => (
-                <label
-                  key={creature.id}
-                  className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-transparent"
-                >
-                  <input
-                    type="checkbox"
-                    className="sr-only"
-                    checked={completedCreatures.has(creature.id)}
-                    onChange={() => toggleCreature(creature.id)}
-                    aria-label={creature.name}
-                  />
-                  <div className="flex items-center justify-center w-5 h-5 border-2 border-gray-400 rounded bg-transparent">
-                  </div>
-                  <span className="text-white text-sm flex-1">{creature.name}</span>
-                </label>
-              ))
-            )}
+      {/* Lista conforme ordenação */}
+      {sortOrder === 'status' ? (
+        <div className="grid grid-cols-1 gap-8">
+          <div className="bg-hollow-darker rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
+              Incompletas ({incompleteCreatures.length})
+            </h2>
+            <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
+              {incompleteCreatures.length === 0 ? (
+                <div className="text-center py-12 text-gray-500">
+                  <img src="/images/hunterMark.png" alt="Hunter's Mark" className="w-16 h-16 mx-auto mb-2" />
+                  <p>Todas as criaturas foram concluídas!</p>
+                </div>
+              ) : (
+                incompleteCreatures.map((creature) => (
+                  <label
+                    key={creature.id}
+                    className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-transparent"
+                  >
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={completedCreatures.has(creature.id)}
+                      onChange={() => toggleCreature(creature.id)}
+                      aria-label={creature.name}
+                    />
+                    <div className="flex items-center justify-center w-5 h-5 border-2 border-gray-400 rounded bg-transparent">
+                    </div>
+                    <span className="text-white text-sm flex-1">{creature.name}</span>
+                  </label>
+                ))
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Coluna de Completos */}
-        <div className="bg-hollow-darker rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
-            Concluído ({completeCreatures.length})
-          </h2>
-          <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
-            {completeCreatures.length === 0 ? (
-              <div className="text-center py-12 text-gray-500">
-                <img src="/images/hunter.png" alt="Hunter" className="w-16 h-16 mx-auto mb-2" />
-                <p>Nenhuma criatura concluída ainda</p>
-              </div>
-            ) : (
-              completeCreatures.map((creature) => (
-                <label
-                  key={creature.id}
-                  className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-blue-900/20"
-                >
-                  <input
-                    type="checkbox"
-                    className="sr-only"
-                    checked={completedCreatures.has(creature.id)}
-                    onChange={() => toggleCreature(creature.id)}
-                    aria-label={creature.name}
-                  />
-                  <div className="flex items-center justify-center w-5 h-5 border-2 border-blue-500 rounded bg-blue-500">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-white text-sm flex-1">{creature.name}</span>
-                </label>
-              ))
-            )}
+          <div className="bg-hollow-darker rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
+              Concluídas ({completeCreatures.length})
+            </h2>
+            <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
+              {completeCreatures.length === 0 ? (
+                <div className="text-center py-12 text-gray-500">
+                  <img src="/images/hunter.png" alt="Hunter" className="w-16 h-16 mx-auto mb-2" />
+                  <p>Nenhuma criatura concluída ainda</p>
+                </div>
+              ) : (
+                completeCreatures.map((creature) => (
+                  <label
+                    key={creature.id}
+                    className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-blue-900/20"
+                  >
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={completedCreatures.has(creature.id)}
+                      onChange={() => toggleCreature(creature.id)}
+                      aria-label={creature.name}
+                    />
+                    <div className="flex items-center justify-center w-5 h-5 border-2 border-blue-500 rounded bg-blue-500">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-sm flex-1">{creature.name}</span>
+                  </label>
+                ))
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Coluna de Incompletos */}
+          <div className="bg-hollow-darker rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
+              Lista de Criaturas ({incompleteCreatures.length})
+            </h2>
+            <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
+              {incompleteCreatures.length === 0 ? (
+                <div className="text-center py-12 text-gray-500">
+                  <img src="/images/hunterMark.png" alt="Hunter's Mark" className="w-16 h-16 mx-auto mb-2" />
+                  <p>Todas as criaturas foram concluídas!</p>
+                </div>
+              ) : (
+                incompleteCreatures.map((creature) => (
+                  <label
+                    key={creature.id}
+                    className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-transparent"
+                  >
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={completedCreatures.has(creature.id)}
+                      onChange={() => toggleCreature(creature.id)}
+                      aria-label={creature.name}
+                    />
+                    <div className="flex items-center justify-center w-5 h-5 border-2 border-gray-400 rounded bg-transparent">
+                    </div>
+                    <span className="text-white text-sm flex-1">{creature.name}</span>
+                  </label>
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* Coluna de Completos */}
+          <div className="bg-hollow-darker rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
+              Concluído ({completeCreatures.length})
+            </h2>
+            <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
+              {completeCreatures.length === 0 ? (
+                <div className="text-center py-12 text-gray-500">
+                  <img src="/images/hunter.png" alt="Hunter" className="w-16 h-16 mx-auto mb-2" />
+                  <p>Nenhuma criatura concluída ainda</p>
+                </div>
+              ) : (
+                completeCreatures.map((creature) => (
+                  <label
+                    key={creature.id}
+                    className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duração-200 bg-blue-900/20"
+                  >
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={completedCreatures.has(creature.id)}
+                      onChange={() => toggleCreature(creature.id)}
+                      aria-label={creature.name}
+                    />
+                    <div className="flex items-center justify-center w-5 h-5 border-2 border-blue-500 rounded bg-blue-500">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-sm flex-1">{creature.name}</span>
+                  </label>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mensagem de conclusão */}
       {completeCreatures.length === creaturesData.length && (
