@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
 interface CreatureItem {
   id: string;
@@ -190,6 +190,8 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const [sortOrder, setSortOrder] = useState<'az' | 'za'>('az');
   const [viewMode, setViewMode] = useState<'columns' | 'status'>('columns');
   const [isClearAllOpen, setIsClearAllOpen] = useState(false);
+  const cancelClearAllRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
 
   // Carregar preferências (busca, ordenação e modo de visualização)
   useEffect(() => {
@@ -284,6 +286,21 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const cancelClearAll = useCallback(() => {
     setIsClearAllOpen(false);
   }, []);
+
+  // Foco automático no modal e fechar com Esc
+  useEffect(() => {
+    if (!isClearAllOpen) return;
+    // foco no botão cancelar
+    cancelClearAllRef.current?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setIsClearAllOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isClearAllOpen]);
 
   // Filtrar por busca
   const filteredCreatures = useMemo(() => {
@@ -600,12 +617,13 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
       {/* Modal de confirmação - Desmarcar Tudo */}
       {isClearAllOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/60" aria-hidden="true"></div>
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true" onClick={cancelClearAll}></div>
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="clearall-title"
             className="relative bg-hollow-darker rounded-lg shadow-xl w-11/12 max-w-md p-6 border border-gray-700"
+            ref={dialogRef}
           >
             <h3 id="clearall-title" className="text-xl font-bold text-white mb-2">Desmarcar todas as criaturas</h3>
             <p className="text-gray-300 mb-6">Tem certeza que deseja desmarcar todas as criaturas? Esta ação não pode ser desfeita.</p>
@@ -613,6 +631,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
               <button
                 onClick={cancelClearAll}
                 className="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-500 transition-colors duration-200 text-sm"
+                ref={cancelClearAllRef}
               >
                 Cancelar
               </button>
