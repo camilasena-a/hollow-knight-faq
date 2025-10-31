@@ -189,6 +189,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOrder, setSortOrder] = useState<'az' | 'za'>('az');
   const [viewMode, setViewMode] = useState<'columns' | 'status'>('columns');
+  const [isClearAllOpen, setIsClearAllOpen] = useState(false);
 
   // Carregar preferências (busca, ordenação e modo de visualização)
   useEffect(() => {
@@ -270,10 +271,18 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
     setCompletedCreatures(newCompleted);
   }, []);
 
-  // Limpar todas as criaturas
-  const clearAll = useCallback(() => {
-    const newCompleted = new Set<string>();
-    setCompletedCreatures(newCompleted);
+  // Abrir modal para limpar todas as criaturas
+  const openClearAll = useCallback(() => {
+    setIsClearAllOpen(true);
+  }, []);
+
+  const confirmClearAll = useCallback(() => {
+    setIsClearAllOpen(false);
+    setCompletedCreatures(new Set<string>());
+  }, []);
+
+  const cancelClearAll = useCallback(() => {
+    setIsClearAllOpen(false);
   }, []);
 
   // Filtrar por busca
@@ -301,6 +310,25 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const completedCount = completeCreatures.length;
   const completionPercentage = Math.round((completedCount / totalCreatures) * 100);
 
+  // Ações em itens filtrados
+  const markFiltered = useCallback(() => {
+    if (filteredCreatures.length === 0) return;
+    setCompletedCreatures(prev => {
+      const next = new Set(prev);
+      filteredCreatures.forEach(c => next.add(c.id));
+      return next;
+    });
+  }, [filteredCreatures]);
+
+  const unmarkFiltered = useCallback(() => {
+    if (filteredCreatures.length === 0) return;
+    setCompletedCreatures(prev => {
+      const next = new Set(prev);
+      filteredCreatures.forEach(c => next.delete(c.id));
+      return next;
+    });
+  }, [filteredCreatures]);
+
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
@@ -310,6 +338,14 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           Acompanhe todas as criaturas que você já derrotou em Hallownest
         </p>
       </div>
+
+      {/* Nenhum resultado quando filtro zera a lista */}
+      {searchQuery && filteredCreatures.length === 0 && (
+        <div className="mb-8 bg-hollow-darker rounded-lg p-6 text-center text-gray-400">
+          <div className="text-xl">Nenhum resultado para “{searchQuery}”.</div>
+          <div className="mt-2 text-sm">Tente outro termo ou limpe a busca.</div>
+        </div>
+      )}
 
       {/* Estatísticas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -332,10 +368,24 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           Marcar Tudo
         </button>
         <button
-          onClick={clearAll}
+          onClick={openClearAll}
           className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm"
         >
           Desmarcar Tudo
+        </button>
+        <button
+          onClick={markFiltered}
+          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors duration-200 text-sm"
+          disabled={filteredCreatures.length === 0}
+        >
+          Marcar filtrados
+        </button>
+        <button
+          onClick={unmarkFiltered}
+          className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors duration-200 text-sm"
+          disabled={filteredCreatures.length === 0}
+        >
+          Desmarcar filtrados
         </button>
         <input
           type="text"
@@ -547,9 +597,39 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
         </div>
       )}
 
+      {/* Modal de confirmação - Desmarcar Tudo */}
+      {isClearAllOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true"></div>
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="clearall-title"
+            className="relative bg-hollow-darker rounded-lg shadow-xl w-11/12 max-w-md p-6 border border-gray-700"
+          >
+            <h3 id="clearall-title" className="text-xl font-bold text-white mb-2">Desmarcar todas as criaturas</h3>
+            <p className="text-gray-300 mb-6">Tem certeza que deseja desmarcar todas as criaturas? Esta ação não pode ser desfeita.</p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={cancelClearAll}
+                className="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-500 transition-colors duration-200 text-sm"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={confirmClearAll}
+                className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors duration-200 text-sm"
+              >
+                Desmarcar Tudo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Indicador de salvamento */}
       {isSaving && (
-        <div className="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+        <div className="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2" aria-live="polite">
           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
           Salvando progresso...
         </div>
