@@ -189,6 +189,32 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOrder, setSortOrder] = useState<'az' | 'za' | 'status'>('az');
 
+  // Carregar preferências (busca e ordenação)
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(`hunter_journal_prefs_${tutorialId}`);
+      if (raw) {
+        const prefs = JSON.parse(raw) as { searchQuery?: string; sortOrder?: 'az' | 'za' | 'status' };
+        if (typeof prefs.searchQuery === 'string') setSearchQuery(prefs.searchQuery);
+        if (prefs.sortOrder === 'az' || prefs.sortOrder === 'za' || prefs.sortOrder === 'status') setSortOrder(prefs.sortOrder);
+      }
+    } catch (e) {
+      console.error('Erro ao carregar preferências:', e);
+    }
+  }, [tutorialId]);
+
+  // Salvar preferências ao mudar
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        `hunter_journal_prefs_${tutorialId}`,
+        JSON.stringify({ searchQuery, sortOrder })
+      );
+    } catch (e) {
+      console.error('Erro ao salvar preferências:', e);
+    }
+  }, [searchQuery, sortOrder, tutorialId]);
+
   // Carregar progresso salvo
   useEffect(() => {
     const saved = localStorage.getItem(`hunter_journal_${tutorialId}`);
