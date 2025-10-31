@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 interface CreatureItem {
   id: string;
@@ -10,12 +10,8 @@ interface HunterJournalChecklistProps {
   tutorialId: string;
 }
 
-const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutorialId }) => {
-  const [completedCreatures, setCompletedCreatures] = useState<Set<string>>(new Set());
-  const [isSaving, setIsSaving] = useState(false);
-
-  // Lista de todas as criaturas do Diário do Caçador (168 total)
-  const creaturesData: CreatureItem[] = [
+// Lista de todas as criaturas do Diário do Caçador (168 total)
+const creaturesData: CreatureItem[] = [
     { id: '1', name: 'Crawlid', area: 'Various' },
     { id: '2', name: 'Vengemosca', area: 'Various' },
     { id: '3', name: 'Rei Vengemosca', area: 'Various' },
@@ -185,7 +181,13 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
     { id: '166', name: 'Selo de Ligação', area: 'Reward' },
     { id: '167', name: 'Ídolo Vazio', area: 'Reward' },
     { id: '168', name: 'Máscara Desgastada', area: 'Reward' },
-  ];
+];
+
+const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutorialId }) => {
+  const [completedCreatures, setCompletedCreatures] = useState<Set<string>>(new Set());
+  const [isSaving, setIsSaving] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortOrder, setSortOrder] = useState<'az' | 'za'>('az');
 
   // Carregar progresso salvo
   useEffect(() => {
@@ -202,52 +204,69 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
     }
   }, [tutorialId]);
 
-  // Salvar progresso
-  const saveProgress = () => {
+  // Salvar progresso (debounce)
+  useEffect(() => {
     setIsSaving(true);
-    try {
-      localStorage.setItem(`hunter_journal_${tutorialId}`, JSON.stringify(Array.from(completedCreatures)));
-    } catch (error) {
-      console.error('Erro ao salvar progresso:', error);
-    } finally {
-      setTimeout(() => setIsSaving(false), 300);
-    }
-  };
+    const handle = setTimeout(() => {
+      try {
+        localStorage.setItem(
+          `hunter_journal_${tutorialId}`,
+          JSON.stringify(Array.from(completedCreatures))
+        );
+      } catch (error) {
+        console.error('Erro ao salvar progresso:', error);
+      } finally {
+        setIsSaving(false);
+      }
+    }, 400);
+    return () => clearTimeout(handle);
+  }, [completedCreatures, tutorialId]);
 
   // Alternar criatura
-  const toggleCreature = (creatureId: string) => {
-    const newCompleted = new Set(completedCreatures);
-    if (newCompleted.has(creatureId)) {
-      newCompleted.delete(creatureId);
-    } else {
-      newCompleted.add(creatureId);
-    }
-    setCompletedCreatures(newCompleted);
-    
-    // Delay para salvar após todas as mudanças
-    setTimeout(() => {
-      saveProgress();
-    }, 500);
-  };
+  const toggleCreature = useCallback((creatureId: string) => {
+    setCompletedCreatures(prev => {
+      const next = new Set(prev);
+      if (next.has(creatureId)) {
+        next.delete(creatureId);
+      } else {
+        next.add(creatureId);
+      }
+      return next;
+    });
+  }, []);
 
   // Marcar todas as criaturas
-  const completeAll = () => {
+  const completeAll = useCallback(() => {
     const allCreatureIds = creaturesData.map(creature => creature.id);
     const newCompleted = new Set(allCreatureIds);
     setCompletedCreatures(newCompleted);
-    localStorage.setItem(`hunter_journal_${tutorialId}`, JSON.stringify(Array.from(newCompleted)));
-  };
+  }, []);
 
   // Limpar todas as criaturas
-  const clearAll = () => {
+  const clearAll = useCallback(() => {
     const newCompleted = new Set<string>();
     setCompletedCreatures(newCompleted);
-    localStorage.setItem(`hunter_journal_${tutorialId}`, JSON.stringify(Array.from(newCompleted)));
-  };
+  }, []);
+
+  // Filtrar por busca
+  const filteredCreatures = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return creaturesData;
+    return creaturesData.filter(c =>
+      c.name.toLowerCase().includes(q) || c.area.toLowerCase().includes(q)
+    );
+  }, [searchQuery]);
 
   // Separar criaturas em completas e incompletas
-  const incompleteCreatures = creaturesData.filter(c => !completedCreatures.has(c.id));
-  const completeCreatures = creaturesData.filter(c => completedCreatures.has(c.id));
+  const incompleteCreatures = useMemo(() => {
+    const list = filteredCreatures.filter(c => !completedCreatures.has(c.id));
+    return list.sort((a, b) => sortOrder === 'az' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+  }, [filteredCreatures, completedCreatures, sortOrder]);
+
+  const completeCreatures = useMemo(() => {
+    const list = filteredCreatures.filter(c => completedCreatures.has(c.id));
+    return list.sort((a, b) => sortOrder === 'az' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+  }, [filteredCreatures, completedCreatures, sortOrder]);
 
   // Calcular progresso
   const totalCreatures = creaturesData.length;
@@ -267,7 +286,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
       {/* Estatísticas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="bg-hollow-darker rounded-lg p-4 text-center">
-          <div className="text-2xl font-bold text-white">168</div>
+          <div className="text-2xl font-bold text-white">{totalCreatures}</div>
           <div className="text-sm text-gray-400">Criaturas na Lista</div>
         </div>
         <div className="bg-hollow-darker rounded-lg p-4 text-center">
@@ -276,8 +295,8 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
         </div>
       </div>
 
-      {/* Botões de Ação */}
-      <div className="flex justify-center gap-4 mb-8">
+      {/* Ações, Busca e Ordenação */}
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-center gap-4 mb-8">
         <button
           onClick={completeAll}
           className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 text-sm"
@@ -290,6 +309,22 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
         >
           Desmarcar Tudo
         </button>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Buscar por criatura ou área..."
+          className="flex-1 md:flex-none md:w-80 px-3 py-2 rounded-lg bg-hollow-darker text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value as 'az' | 'za')}
+          className="px-3 py-2 rounded-lg bg-hollow-darker text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          aria-label="Ordenar"
+        >
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
       </div>
 
       {/* Barra de Progresso */}
@@ -308,7 +343,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           </div>
         </div>
         <p className="text-center text-gray-400 mt-3 text-lg">
-          {completedCount}/168 concluído
+          {completedCount}/{totalCreatures} concluído
         </p>
       </div>
 
@@ -322,7 +357,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
             {incompleteCreatures.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
-                <img src="./images/hunterMark.png" alt="Hunter's Mark" className="w-16 h-16 mx-auto mb-2" />
+                <img src="/images/hunterMark.png" alt="Hunter's Mark" className="w-16 h-16 mx-auto mb-2" />
                 <p>Todas as criaturas foram concluídas!</p>
               </div>
             ) : (
@@ -330,8 +365,14 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
                 <label
                   key={creature.id}
                   className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-transparent"
-                  onClick={() => toggleCreature(creature.id)}
                 >
+                  <input
+                    type="checkbox"
+                    className="sr-only"
+                    checked={completedCreatures.has(creature.id)}
+                    onChange={() => toggleCreature(creature.id)}
+                    aria-label={creature.name}
+                  />
                   <div className="flex items-center justify-center w-5 h-5 border-2 border-gray-400 rounded bg-transparent">
                   </div>
                   <span className="text-white text-sm flex-1">{creature.name}</span>
@@ -349,7 +390,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
           <div className="space-y-2 max-h-[600px] overflow-y-auto custom-scrollbar">
             {completeCreatures.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
-                <img src="./images/hunter.png" alt="Hunter" className="w-16 h-16 mx-auto mb-2" />
+                <img src="/images/hunter.png" alt="Hunter" className="w-16 h-16 mx-auto mb-2" />
                 <p>Nenhuma criatura concluída ainda</p>
               </div>
             ) : (
@@ -357,8 +398,14 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
                 <label
                   key={creature.id}
                   className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors duration-200 bg-blue-900/20"
-                  onClick={() => toggleCreature(creature.id)}
                 >
+                  <input
+                    type="checkbox"
+                    className="sr-only"
+                    checked={completedCreatures.has(creature.id)}
+                    onChange={() => toggleCreature(creature.id)}
+                    aria-label={creature.name}
+                  />
                   <div className="flex items-center justify-center w-5 h-5 border-2 border-blue-500 rounded bg-blue-500">
                     <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
