@@ -327,24 +327,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const completedCount = completeCreatures.length;
   const completionPercentage = Math.round((completedCount / totalCreatures) * 100);
 
-  // Ações em itens filtrados
-  const markFiltered = useCallback(() => {
-    if (filteredCreatures.length === 0) return;
-    setCompletedCreatures(prev => {
-      const next = new Set(prev);
-      filteredCreatures.forEach(c => next.add(c.id));
-      return next;
-    });
-  }, [filteredCreatures]);
-
-  const unmarkFiltered = useCallback(() => {
-    if (filteredCreatures.length === 0) return;
-    setCompletedCreatures(prev => {
-      const next = new Set(prev);
-      filteredCreatures.forEach(c => next.delete(c.id));
-      return next;
-    });
-  }, [filteredCreatures]);
+  // Ações em itens filtrados (removidas)
 
   return (
     <div className="max-w-6xl mx-auto p-6">
@@ -390,20 +373,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
         >
           Desmarcar Tudo
         </button>
-        <button
-          onClick={markFiltered}
-          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors duration-200 text-sm"
-          disabled={filteredCreatures.length === 0}
-        >
-          Marcar filtrados
-        </button>
-        <button
-          onClick={unmarkFiltered}
-          className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors duration-200 text-sm"
-          disabled={filteredCreatures.length === 0}
-        >
-          Desmarcar filtrados
-        </button>
+        
         <input
           type="text"
           value={searchQuery}
