@@ -187,16 +187,18 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   const [completedCreatures, setCompletedCreatures] = useState<Set<string>>(new Set());
   const [isSaving, setIsSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortOrder, setSortOrder] = useState<'az' | 'za' | 'status'>('az');
+  const [sortOrder, setSortOrder] = useState<'az' | 'za'>('az');
+  const [viewMode, setViewMode] = useState<'columns' | 'status'>('columns');
 
-  // Carregar preferências (busca e ordenação)
+  // Carregar preferências (busca, ordenação e modo de visualização)
   useEffect(() => {
     try {
       const raw = localStorage.getItem(`hunter_journal_prefs_${tutorialId}`);
       if (raw) {
-        const prefs = JSON.parse(raw) as { searchQuery?: string; sortOrder?: 'az' | 'za' | 'status' };
+        const prefs = JSON.parse(raw) as { searchQuery?: string; sortOrder?: 'az' | 'za' | 'status'; viewMode?: 'columns' | 'status' };
         if (typeof prefs.searchQuery === 'string') setSearchQuery(prefs.searchQuery);
-        if (prefs.sortOrder === 'az' || prefs.sortOrder === 'za' || prefs.sortOrder === 'status') setSortOrder(prefs.sortOrder);
+        if (prefs.sortOrder === 'az' || prefs.sortOrder === 'za') setSortOrder(prefs.sortOrder);
+        if (prefs.viewMode === 'columns' || prefs.viewMode === 'status') setViewMode(prefs.viewMode);
       }
     } catch (e) {
       console.error('Erro ao carregar preferências:', e);
@@ -208,12 +210,12 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
     try {
       localStorage.setItem(
         `hunter_journal_prefs_${tutorialId}`,
-        JSON.stringify({ searchQuery, sortOrder })
+        JSON.stringify({ searchQuery, sortOrder, viewMode })
       );
     } catch (e) {
       console.error('Erro ao salvar preferências:', e);
     }
-  }, [searchQuery, sortOrder, tutorialId]);
+  }, [searchQuery, sortOrder, viewMode, tutorialId]);
 
   // Carregar progresso salvo
   useEffect(() => {
@@ -286,28 +288,13 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
   // Separar criaturas em completas e incompletas
   const incompleteCreatures = useMemo(() => {
     const list = filteredCreatures.filter(c => !completedCreatures.has(c.id));
-    if (sortOrder === 'status') {
-      return list.sort((a, b) => a.name.localeCompare(b.name));
-    }
     return list.sort((a, b) => sortOrder === 'az' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
   }, [filteredCreatures, completedCreatures, sortOrder]);
 
   const completeCreatures = useMemo(() => {
     const list = filteredCreatures.filter(c => completedCreatures.has(c.id));
-    if (sortOrder === 'status') {
-      return list.sort((a, b) => a.name.localeCompare(b.name));
-    }
     return list.sort((a, b) => sortOrder === 'az' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
   }, [filteredCreatures, completedCreatures, sortOrder]);
-
-  // Lista combinada (status: incompletos primeiro)
-  const combinedByStatus = useMemo(() => {
-    if (sortOrder !== 'status') return [] as CreatureItem[];
-    return [
-      ...incompleteCreatures,
-      ...completeCreatures,
-    ];
-  }, [sortOrder, incompleteCreatures, completeCreatures]);
 
   // Calcular progresso
   const totalCreatures = creaturesData.length;
@@ -368,12 +355,20 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
         )}
         <select
           value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as 'az' | 'za' | 'status')}
+          onChange={(e) => setSortOrder(e.target.value as 'az' | 'za')}
           className="px-3 py-2 rounded-lg bg-hollow-darker text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
           aria-label="Ordenar"
         >
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
+        </select>
+        <select
+          value={viewMode}
+          onChange={(e) => setViewMode(e.target.value as 'columns' | 'status')}
+          className="px-3 py-2 rounded-lg bg-hollow-darker text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          aria-label="Modo de visualização"
+        >
+          <option value="columns">Duas colunas</option>
           <option value="status">Status (incompletos primeiro)</option>
         </select>
       </div>
@@ -399,7 +394,7 @@ const HunterJournalChecklist: React.FC<HunterJournalChecklistProps> = ({ tutoria
       </div>
 
       {/* Lista conforme ordenação */}
-      {sortOrder === 'status' ? (
+      {viewMode === 'status' ? (
         <div className="grid grid-cols-1 gap-8">
           <div className="bg-hollow-darker rounded-lg p-6">
             <h2 className="text-2xl font-bold text-white mb-4 pb-4 border-b border-gray-700">
