@@ -1,10 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, Star, BookOpen, Trophy, Heart } from 'lucide-react';
 import TutorialCard from '../components/TutorialCard';
 import { tutorials } from '../data/tutorials';
 
 const Home: React.FC = () => {
+  const location = useLocation();
+  
+  // Detecta o prefixo do jogo baseado na rota atual
+  const getGamePrefix = () => {
+    if (location.pathname.startsWith('/hk1')) return '/hk1';
+    if (location.pathname.startsWith('/hk2')) return '/hk2';
+    return '';
+  };
+
+  const gamePrefix = getGamePrefix();
   const featuredTutorials = tutorials.slice(0, 3);
   const stats = [
     { icon: BookOpen, label: 'Tutoriais', value: tutorials.length },
@@ -39,7 +49,7 @@ const Home: React.FC = () => {
             </p>
             <div className="flex justify-center">
               <Link
-                to="/tutoriais"
+                to={`${gamePrefix}/tutoriais`}
                 className="btn-primary inline-flex items-center space-x-2 text-lg px-8 py-3"
               >
                 <span>Explorar Tutoriais</span>
@@ -92,7 +102,7 @@ const Home: React.FC = () => {
 
           <div className="text-center">
             <Link
-              to="/tutoriais"
+              to={`${gamePrefix}/tutoriais`}
               className="btn-primary inline-flex items-center space-x-2 text-lg px-8 py-3"
             >
               <span>Ver Todos os Tutoriais</span>

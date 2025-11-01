@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Clock, Heart, User, Calendar } from 'lucide-react';
 import { Tutorial } from '../types';
 
@@ -8,6 +8,17 @@ interface TutorialCardProps {
 }
 
 const TutorialCard: React.FC<TutorialCardProps> = ({ tutorial }) => {
+  const location = useLocation();
+  
+  // Detecta o prefixo do jogo baseado na rota atual
+  const getGamePrefix = () => {
+    if (location.pathname.startsWith('/hk1')) return '/hk1';
+    if (location.pathname.startsWith('/hk2')) return '/hk2';
+    return '';
+  };
+
+  const gamePrefix = getGamePrefix();
+
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'Iniciante':
@@ -32,7 +43,7 @@ const TutorialCard: React.FC<TutorialCardProps> = ({ tutorial }) => {
 
   return (
     <div className="card group hover:scale-105 transition-transform duration-300">
-      <Link to={`/tutorial/${tutorial.id}`} className="block">
+      <Link to={`${gamePrefix}/tutorial/${tutorial.id}`} className="block">
         {/* Image */}
         <div className="relative overflow-hidden rounded-lg mb-4">
           <img

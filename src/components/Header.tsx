@@ -7,25 +7,46 @@ const Header: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
 
+  // Detecta qual jogo está ativo baseado na rota
+  const isHK1 = location.pathname.startsWith('/hk1');
+  const isHK2 = location.pathname.startsWith('/hk2');
+  const gamePrefix = isHK1 ? '/hk1' : isHK2 ? '/hk2' : '';
+
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Tutoriais', href: '/tutoriais' },
-    { name: 'Contato', href: '/contato' },
+    { name: 'Home', href: gamePrefix + '/' },
+    { name: 'Tutoriais', href: gamePrefix + '/tutoriais' },
+    { name: 'Contato', href: gamePrefix + '/contato' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    const currentPath = location.pathname.replace(/^\/hk[12]/, '') || '/';
+    return currentPath === path || currentPath === path + '/';
+  };
+
+  // Link para voltar à seleção de jogos
+  const getBackToSelectionLink = () => {
+    if (isHK1 || isHK2) {
+      return '/';
+    }
+    return '#';
+  };
 
   return (
     <header className="bg-black border-b border-gray-700 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo (somente texto-imagem) */}
-          <Link to="/" className="flex items-center">
+          <Link to={getBackToSelectionLink()} className="flex items-center group">
             <img
               src="./images/logotipo-texto.png"
               alt="Hollow Knight FAQ"
-              className="h-8 w-auto md:h-9 lg:h-10"
+              className="h-8 w-auto md:h-9 lg:h-10 transition-opacity group-hover:opacity-80"
             />
+            {(isHK1 || isHK2) && (
+              <span className="ml-2 text-xs text-gray-400 group-hover:text-gray-300">
+                Voltar
+              </span>
+            )}
           </Link>
 
           {/* Desktop Navigation */}

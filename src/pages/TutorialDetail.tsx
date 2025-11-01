@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, Heart, Share2, Clock, User, Calendar, MessageCircle } from 'lucide-react';
 import { tutorials } from '../data/tutorials';
 import CompletionChecklist from '../components/CompletionChecklist';
@@ -9,10 +9,19 @@ import HunterJournalChecklist from '../components/HunterJournalChecklist';
 
 const TutorialDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(0);
   const [showComments, setShowComments] = useState(false);
 
+  // Detecta o prefixo do jogo baseado na rota atual
+  const getGamePrefix = () => {
+    if (location.pathname.startsWith('/hk1')) return '/hk1';
+    if (location.pathname.startsWith('/hk2')) return '/hk2';
+    return '';
+  };
+
+  const gamePrefix = getGamePrefix();
   const tutorial = tutorials.find(t => t.id === id);
 
   if (!tutorial) {
@@ -21,7 +30,7 @@ const TutorialDetail: React.FC = () => {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Tutorial não encontrado</h1>
           <p className="text-gray-400 mb-8">O tutorial que você está procurando não existe.</p>
-          <Link to="/tutoriais" className="btn-primary">
+          <Link to={`${gamePrefix}/tutoriais`} className="btn-primary">
             Voltar aos Tutoriais
           </Link>
         </div>
@@ -79,7 +88,7 @@ const TutorialDetail: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Button */}
         <Link
-          to="/tutoriais"
+          to={`${gamePrefix}/tutoriais`}
           className="inline-flex items-center space-x-2 text-hollow-gold hover:text-yellow-400 transition-colors duration-200 mb-8"
         >
           <ArrowLeft className="w-5 h-5" />

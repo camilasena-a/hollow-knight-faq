@@ -1,21 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Github, Twitter, Youtube, Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  
+  // Detecta o prefixo do jogo baseado na rota atual
+  const getGamePrefix = () => {
+    if (location.pathname.startsWith('/hk1')) return '/hk1';
+    if (location.pathname.startsWith('/hk2')) return '/hk2';
+    return '';
+  };
+
+  const gamePrefix = getGamePrefix();
 
   const footerLinks = {
     'Navegação': [
-      { name: 'Home', href: '/' },
-      { name: 'Tutoriais', href: '/tutoriais' },
-      { name: 'Contato', href: '/contato' },
+      { name: 'Home', href: gamePrefix + '/' },
+      { name: 'Tutoriais', href: gamePrefix + '/tutoriais' },
+      { name: 'Contato', href: gamePrefix + '/contato' },
     ],
     'Categorias': [
-      { name: 'Iniciante', href: '/tutoriais?categoria=iniciante' },
-      { name: 'Chefes', href: '/tutoriais?categoria=chefes' },
-      { name: 'Equipamentos', href: '/tutoriais?categoria=equipamentos' },
-      { name: 'Exploração', href: '/tutoriais?categoria=exploracao' },
+      { name: 'Iniciante', href: gamePrefix + '/tutoriais?categoria=iniciante' },
+      { name: 'Chefes', href: gamePrefix + '/tutoriais?categoria=chefes' },
+      { name: 'Equipamentos', href: gamePrefix + '/tutoriais?categoria=equipamentos' },
+      { name: 'Exploração', href: gamePrefix + '/tutoriais?categoria=exploracao' },
     ],
     'Recursos': [
       { name: 'Mapa Interativo', href: '#' },
@@ -37,7 +47,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
+            <Link to={gamePrefix ? '/' : '#'} className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-hollow-gold rounded-full flex items-center justify-center">
                 <span className="text-hollow-dark font-bold text-lg">H</span>
               </div>
