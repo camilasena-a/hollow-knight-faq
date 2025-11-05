@@ -30,6 +30,13 @@ const HomeHK2: React.FC = () => {
             </p>
             <div className="flex justify-center gap-4">
               <Link
+                to="/hk2/tutoriais"
+                className="btn-primary inline-flex items-center space-x-2 text-lg px-8 py-3"
+              >
+                <span>Explorar Tutoriais</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
                 to="/hk1"
                 className="btn-secondary inline-flex items-center space-x-2 text-lg px-8 py-3"
               >
@@ -60,28 +67,33 @@ const HomeHK2: React.FC = () => {
         </div>
       </section>
 
-      {/* Coming Soon Section */}
+      {/* Available Content Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Em Breve
+              Conteúdo Disponível
             </h2>
             <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-              Estamos trabalhando duro para trazer todos os guias, tutoriais e estratégias 
-              para Hollow Knight Silksong. Fique ligado!
+              Explore os tutoriais e guias disponíveis para Hollow Knight: Silksong
             </p>
             <div className="bg-hollow-dark rounded-lg p-8 border border-gray-700 max-w-2xl mx-auto">
               <p className="text-gray-300 mb-4">
-                <strong className="text-blue-400">Em desenvolvimento:</strong>
+                <strong className="text-blue-400">Tutoriais Disponíveis:</strong>
               </p>
               <ul className="text-left text-gray-400 space-y-2 max-w-md mx-auto">
-                <li>• Tutoriais detalhados do jogo</li>
-                <li>• Guias de chefes e estratégias</li>
-                <li>• Checklists de conquistas</li>
-                <li>• Mapas interativos</li>
-                <li>• Speedrun guides</li>
+                <li>• Checklist de Fragmentos de Carretel</li>
+                <li>• E mais tutoriais em breve...</li>
               </ul>
+              <div className="mt-6">
+                <Link
+                  to="/hk2/tutoriais"
+                  className="btn-primary inline-flex items-center space-x-2"
+                >
+                  <span>Ver Todos os Tutoriais</span>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

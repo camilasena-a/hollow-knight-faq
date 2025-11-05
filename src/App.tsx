@@ -9,6 +9,8 @@ import TutorialDetail from './pages/TutorialDetail';
 import Contact from './pages/Contact';
 // Silksong Pages
 import HomeHK2 from './pages/hk2/Home';
+import TutorialsHK2 from './pages/hk2/Tutorials';
+import TutorialDetailHK2 from './pages/hk2/TutorialDetail';
 
 function App() {
   return (
@@ -34,7 +36,8 @@ function App() {
           <Layout>
             <Routes>
               <Route index element={<HomeHK2 />} />
-              {/* Add more HK2 routes here as needed */}
+              <Route path="tutoriais" element={<TutorialsHK2 />} />
+              <Route path="tutorial/:id" element={<TutorialDetailHK2 />} />
             </Routes>
           </Layout>
         } />
