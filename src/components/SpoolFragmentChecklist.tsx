@@ -159,7 +159,14 @@ const SpoolFragmentChecklist: React.FC<SpoolFragmentChecklistProps> = ({ tutoria
       if (savedProgress) {
         const parsedData = JSON.parse(savedProgress);
         if (Array.isArray(parsedData)) {
-          setCompletedItems(new Set(parsedData));
+          // Filtrar apenas IDs que existem no fragmentData atual
+          const validFragmentIds = new Set(fragmentData.map(item => item.id));
+          const validCompletedItems = parsedData.filter(id => validFragmentIds.has(id));
+          setCompletedItems(new Set(validCompletedItems));
+          // Salvar de volta apenas com IDs válidos
+          if (validCompletedItems.length !== parsedData.length) {
+            localStorage.setItem(`spool-fragments-${tutorialId}`, JSON.stringify(validCompletedItems));
+          }
         }
       }
     } catch (error) {
@@ -226,7 +233,9 @@ const SpoolFragmentChecklist: React.FC<SpoolFragmentChecklistProps> = ({ tutoria
   }, {} as Record<string, SpoolFragmentItem[]>);
 
   const totalFragments = fragmentData.length;
-  const collectedFragments = completedItems.size;
+  // Contar apenas os IDs que realmente existem no fragmentData
+  const validFragmentIds = new Set(fragmentData.map(item => item.id));
+  const collectedFragments = Array.from(completedItems).filter(id => validFragmentIds.has(id)).length;
   const percentage = Math.round((collectedFragments / totalFragments) * 100);
 
   return (
