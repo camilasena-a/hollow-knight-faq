@@ -83,6 +83,7 @@ const HomeHK2: React.FC = () => {
               </p>
               <ul className="text-left text-gray-400 space-y-2 max-w-md mx-auto">
                 <li>• Checklist de Fragmentos de Carretel</li>
+                <li>• Checklist de Localização das Máscaras</li>
                 <li>• E mais tutoriais em breve...</li>
               </ul>
               <div className="mt-6">
