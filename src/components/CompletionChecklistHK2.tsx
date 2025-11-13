@@ -63,10 +63,23 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     { id: 'spool-17', name: 'Fragmento de Carretel 17', category: 'Carretel de Seda', percentage: 0.5, description: 'Salões Supremos, no topo' },
     { id: 'spool-18', name: 'Fragmento de Carretel 18', category: 'Carretel de Seda', percentage: 0.5, description: 'Docas Profundas, área com chave ou arpão' },
 
-    // História Principal (20%)
-    { id: 'main-story', name: 'Completar a história principal', category: 'História Principal', percentage: 10, description: '' },
-    { id: 'silk-city', name: 'Alcançar a Cidade de Seda', category: 'História Principal', percentage: 5, description: '' },
-    { id: 'final-boss', name: 'Derrotar o chefe final', category: 'História Principal', percentage: 5, description: '' },
+    // Habilidades de Seda (6%)
+    { id: 'silk-ability-1', name: 'Lança de Seda', category: 'Habilidades de Seda', percentage: 1, description: 'Musgalia' },
+     { id: 'silk-ability-2', name: 'Turbilhão de Fios', category: 'Habilidades de Seda', percentage: 1, description: 'Pantano Cizento' },
+    { id: 'silk-ability-3', name: 'Ponto Cruz', category: 'Habilidades de Seda', percentage: 1, description: 'Derrotar Fantasma' },
+    { id: 'silk-ability-4', name: 'Dardo Afiado', category: 'Habilidades de Seda', percentage: 1, description: 'Ninho de Telelã Covil dos Vermes' },
+    { id: 'silk-ability-5', name: 'Fúria de Runas', category: 'Habilidades de Seda', percentage: 1, description: 'Derrotar Primeira Pecadora' },
+    { id: 'silk-ability-6', name: 'Lâminas Giratórias', category: 'Habilidades de Seda', percentage: 1, description: 'Braço Grande Mãe' },
+
+    // Habilidades (6%)
+    { id: 'ability-1', name: 'Passo Veloz', category: 'Habilidades', percentage: 1, description: 'Dash' },
+    { id: 'ability-2', name: 'Garra de Seda', category: 'Habilidades', percentage: 1, description: 'Arpão' },
+    { id: 'ability-3', name: 'Silfonia', category: 'Habilidades', percentage: 1, description: 'Fundir Eva' },
+    { id: 'ability-4', name: 'Agulino', category: 'Habilidades', percentage: 1, description: 'Derrotar Viuva' },
+    { id: 'ability-5', name: 'Garra Aderente', category: 'Habilidades', percentage: 1, description: 'Cascomadeira' },
+    { id: 'ability-6', name: 'Impulso de Seda', category: 'Habilidades', percentage: 1, description: 'Abismo' },
+    { id: 'ability-7', name: 'Ataque focado', category: 'Habilidades', percentage: 1, description: 'Alfinistra' },
+    { id: 'ability-8', name: 'Flor da eternidade', category: 'Habilidades', percentage: 1, description: 'Quest Para ato 3' },
 
     // Chefes Obrigatórios (15%)
     { id: 'boss-1', name: 'Chefe Principal 1', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
@@ -98,13 +111,6 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     { id: 'tool-3', name: 'Ferramenta de Combate 1', category: 'Ferramentas', percentage: 1, description: '' },
     { id: 'tool-4', name: 'Ferramenta de Combate 2', category: 'Ferramentas', percentage: 1, description: '' },
     { id: 'tool-5', name: 'Ferramenta de Exploração', category: 'Ferramentas', percentage: 1, description: '' },
-
-    // Habilidades (5%)
-    { id: 'skill-1', name: 'Técnica de Combate 1', category: 'Habilidades', percentage: 1, description: '' },
-    { id: 'skill-2', name: 'Técnica de Combate 2', category: 'Habilidades', percentage: 1, description: '' },
-    { id: 'skill-3', name: 'Movimento Especial 1', category: 'Habilidades', percentage: 1, description: '' },
-    { id: 'skill-4', name: 'Movimento Especial 2', category: 'Habilidades', percentage: 1, description: '' },
-    { id: 'skill-5', name: 'Habilidade de Tecelagem', category: 'Habilidades', percentage: 1, description: '' },
 
     // Upgrades de Ferrão (8%)
     { id: 'nail-upgrade-1', name: 'Upgrade de Ferrão 1', category: 'Upgrades de Ferrão', percentage: 2, description: '' },
