@@ -81,6 +81,20 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     { id: 'ability-7', name: 'Ataque focado', category: 'Habilidades', percentage: 1, description: 'Alfinistra' },
     { id: 'ability-8', name: 'Flor da eternidade', category: 'Habilidades', percentage: 1, description: 'Quest Para ato 3' },
 
+    // Brasões
+    { id: 'badge-1', name: 'Brasão da Besta', category: 'Brasões', percentage: 0.5, description: '' },
+    { id: 'badge-2', name: 'Brasão do Ceifador', category: 'Brasões', percentage: 0.5, description: '' },
+    { id: 'badge-3', name: 'Brasão do Viajante', category: 'Brasões', percentage: 0.5, description: '' },
+    { id: 'badge-4', name: 'Brasão da Bruxa', category: 'Brasões', percentage: 0.5, description: '' },
+    { id: 'badge-5', name: 'Brasão do Arquiteto', category: 'Brasões', percentage: 0.5, description: '' },
+    { id: 'badge-5', name: 'Brasão do Xamã', category: 'Brasões', percentage: 0.5, description: '' },
+   
+    // Melhoria de Agulha
+    { id: 'needle-upgrade-1', name: 'Melhoria de Agulha 1', category: 'Melhoria de Agulha', percentage: 1, description: '' },
+    { id: 'needle-upgrade-2', name: 'Melhoria de Agulha 2', category: 'Melhoria de Agulha', percentage: 1, description: '' },
+    { id: 'needle-upgrade-3', name: 'Melhoria de Agulha 3', category: 'Melhoria de Agulha', percentage: 1, description: '' },
+    { id: 'needle-upgrade-4', name: 'Melhoria de Agulha 4', category: 'Melhoria de Agulha', percentage: 1, description: '' },
+ 
     // Chefes Obrigatórios (15%)
     { id: 'boss-1', name: 'Chefe Principal 1', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
     { id: 'boss-2', name: 'Chefe Principal 2', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
