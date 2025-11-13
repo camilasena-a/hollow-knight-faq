@@ -80,6 +80,144 @@ As máscaras estão espalhadas por todo o reino de Pharloom. Algumas estão em l
     tags: ['silksong', 'máscaras', 'checklist', 'colecionáveis', 'guia', 'localização', 'vida'],
     likes: 0,
     readTime: 6
+  },
+  {
+    id: 'hk2-3',
+    title: 'Checklist 100%',
+    description: 'Checklist completo e interativo para acompanhar seu progresso rumo aos 100% de conclusão em Hollow Knight: Silksong.',
+    content: `# Checklist 100%
+
+## O que é 100% em Silksong?
+
+Hollow Knight: Silksong possui um sistema de porcentagem de conclusão que rastreia todo o progresso da Hornet em sua jornada por Pharloom. Alcançar 100% significa completar todos os aspectos principais do jogo, incluindo história, chefes, colecionáveis e upgrades.
+
+## Requisitos para 100%
+
+### História Principal (20%)
+- **Completar a história principal** (10%)
+- **Alcançar a Cidade de Seda** (5%)
+- **Derrotar o chefe final** (5%)
+
+### Chefes (25%)
+- **Chefes obrigatórios da história** (15%)
+  - Derrotar todos os chefes principais da narrativa
+  - Completar confrontos essenciais para o progresso
+- **Chefes opcionais** (10%)
+  - Chefes escondidos em áreas secretas
+  - Chefes de áreas opcionais
+  - Chefes de desafios especiais
+
+### Fragmentos de Carretel (15%)
+- **Coletar todos os Fragmentos de Carretel** (15%)
+  - Fragmentos espalhados pelo mapa
+  - Fragmentos de recompensas de chefes
+  - Fragmentos de quebra-cabeças e desafios
+  - Fragmentos de áreas secretas
+
+### Máscaras (10%)
+- **Coletar todas as Máscaras** (10%)
+  - Máscaras que aumentam vida máxima
+  - Máscaras de recompensas de missões
+  - Máscaras de áreas secretas
+  - Máscaras de chefes opcionais
+
+### Ferramentas e Habilidades (10%)
+- **Adquirir todas as Ferramentas** (5%)
+  - Ferramentas de movimento
+  - Ferramentas de combate
+  - Ferramentas de exploração
+- **Aprender todas as Habilidades** (5%)
+  - Técnicas de combate
+  - Movimentos especiais
+  - Habilidades de tecelagem
+
+### Upgrades de Ferrão (8%)
+- **Melhorias do Ferrão** (8%)
+  - Upgrade 1 (2%)
+  - Upgrade 2 (2%)
+  - Upgrade 3 (2%)
+  - Upgrade 4 (2%)
+
+### Áreas e Exploração (7%)
+- **Explorar todas as áreas** (5%)
+  - Todas as regiões de Pharloom
+  - Áreas secretas e escondidas
+  - Passagens alternativas
+- **Desbloquear todos os mapas** (2%)
+  - Comprar mapas dos cartógrafos
+  - Encontrar mapas escondidos
+
+### Missões e NPCs (5%)
+- **Completar missões principais** (3%)
+  - Missões da história
+  - Missões de NPCs importantes
+- **Interagir com NPCs** (2%)
+  - Conversar com todos os NPCs
+  - Completar missões secundárias
+
+## Estratégia Recomendada
+
+### Fase 1: História Principal (0-30%)
+1. Siga a história principal
+2. Derrote chefes obrigatórios
+3. Adquira habilidades básicas
+4. Explore áreas principais
+
+### Fase 2: Exploração e Colecionáveis (30-70%)
+1. Explore todas as áreas
+2. Colete Fragmentos de Carretel
+3. Colete Máscaras
+4. Complete upgrades básicos
+5. Derrote chefes opcionais
+
+### Fase 3: Conclusão (70-100%)
+1. Complete todas as missões
+2. Encontre todos os colecionáveis
+3. Derrote todos os chefes
+4. Adquira todos os upgrades
+5. Explore áreas secretas
+
+## Dicas Importantes
+
+### Para Iniciantes
+- Não se apresse - 100% é um objetivo de longo prazo
+- Use o mapa para marcar áreas visitadas
+- Salve frequentemente
+- Pratique combate regularmente
+- Explore sistematicamente cada área
+
+### Para Experientes
+- Planeje rotas eficientes
+- Priorize upgrades que facilitam exploração
+- Use habilidades de movimento para acessar áreas secretas
+- Complete missões secundárias para recompensas extras
+- Mantenha um checklist pessoal
+
+## Recompensas por 100%
+- **Título de Conclusão**
+- **Acesso a conteúdo pós-jogo**
+- **Conquistas desbloqueadas**
+- **Satisfação de ter completado tudo**
+
+## Tempo Estimado
+- **Jogador Iniciante**: 40-60 horas
+- **Jogador Experiente**: 25-40 horas
+- **Speedrunner**: 15-25 horas
+
+## Recursos Úteis
+- Mapas interativos online
+- Guias de localização de colecionáveis
+- Comunidade de Hollow Knight: Silksong
+- Ferramentas de tracking de progresso
+- Vídeos de walkthrough`,
+    author: 'camilasena',
+    date: '2024-12-20',
+    category: 'Avançado',
+    difficulty: 'Avançado',
+    image: './images/silksong-logoB.png',
+    tags: ['silksong', 'checklist', '100%', 'conclusão', 'guia', 'progresso', 'completar'],
+    likes: 0,
+    readTime: 8
   }
 ];
 

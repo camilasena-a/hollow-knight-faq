@@ -4,6 +4,7 @@ import { ArrowLeft, Heart, Share2, Clock, User, Calendar, MessageCircle } from '
 import { tutorialsHK2 } from '../../data/tutorialsHK2';
 import SpoolFragmentChecklist from '../../components/SpoolFragmentChecklist';
 import MaskChecklist from '../../components/MaskChecklist';
+import CompletionChecklistHK2 from '../../components/CompletionChecklistHK2';
 
 const TutorialDetailHK2: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -168,6 +169,9 @@ const TutorialDetailHK2: React.FC = () => {
           ) : tutorial.id === 'hk2-2' ? (
             // Checklist interativo para máscaras
             <MaskChecklist tutorialId={tutorial.id} />
+          ) : tutorial.id === 'hk2-3' ? (
+            // Checklist interativo para o guia de 100%
+            <CompletionChecklistHK2 tutorialId={tutorial.id} />
           ) : (
             // Conteúdo normal para outros tutoriais
             <div className="bg-hollow-darker rounded-lg p-8">
