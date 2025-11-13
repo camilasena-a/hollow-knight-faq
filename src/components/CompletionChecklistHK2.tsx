@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Check } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface ChecklistItem {
   id: string;
@@ -17,6 +17,7 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
   const [completedItems, setCompletedItems] = useState<Set<string>>(new Set());
   const [totalPercentage, setTotalPercentage] = useState(0);
   const [isSaving, setIsSaving] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
   // Dados do checklist de 100% para Silksong
   const checklistData: ChecklistItem[] = [
@@ -264,6 +265,25 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     return acc;
   }, {} as Record<string, ChecklistItem[]>);
 
+  // Inicializar todas as seções como expandidas por padrão
+  useEffect(() => {
+    const allCategories = Object.keys(groupedItems);
+    if (allCategories.length > 0 && expandedSections.size === 0) {
+      setExpandedSections(new Set(allCategories));
+    }
+  }, [checklistData]);
+
+  // Toggle de seção
+  const toggleSection = (category: string) => {
+    const newExpanded = new Set(expandedSections);
+    if (newExpanded.has(category)) {
+      newExpanded.delete(category);
+    } else {
+      newExpanded.add(category);
+    }
+    setExpandedSections(newExpanded);
+  };
+
   return (
     <div className="bg-hollow-darker rounded-lg p-8">
       {/* Header com progresso */}
@@ -322,55 +342,76 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
 
       {/* Checklist por categoria */}
       <div className="space-y-8">
-        {Object.entries(groupedItems).map(([category, items]) => (
-          <div key={category}>
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-              {category}
-              <span className="ml-2 text-sm text-gray-400">
-                ({items.filter(item => completedItems.has(item.id)).length}/{items.length})
-              </span>
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {items.map((item) => (
-                <label
-                  key={item.id}
-                  className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-200 ${
-                    completedItems.has(item.id)
-                      ? 'bg-green-900/30 border border-green-500/50'
-                      : 'bg-hollow-dark hover:bg-gray-700 border border-transparent'
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={completedItems.has(item.id)}
-                    onChange={() => toggleItem(item.id)}
-                    className="sr-only"
-                  />
-                  
-                  <div className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-all duration-200 ${
-                    completedItems.has(item.id)
-                      ? 'bg-green-500 border-green-500'
-                      : 'border-gray-400 hover:border-blue-400'
-                  }`}>
-                    {completedItems.has(item.id) && (
-                      <Check className="w-4 h-4 text-white" />
-                    )}
-                  </div>
-                  
-                  <div className="flex-1">
-                    <div className="text-white font-medium">{item.name}</div>
-                    {item.description ? (
-                      <div className="text-sm text-gray-400">{item.description}</div>
-                    ) : (
-                      <div className="text-sm text-gray-400">{item.percentage}%</div>
-                    )}
-                  </div>
-                </label>
-              ))}
+        {Object.entries(groupedItems).map(([category, items]) => {
+          const isExpanded = expandedSections.has(category);
+          return (
+            <div key={category} className="border-b border-gray-700 pb-6 last:border-b-0">
+              <button
+                onClick={() => toggleSection(category)}
+                className="w-full flex items-center justify-between text-left mb-4 hover:opacity-80 transition-opacity"
+              >
+                <h3 className="text-xl font-semibold text-white flex items-center">
+                  {category}
+                  <span className="ml-2 text-sm text-gray-400 font-normal">
+                    ({items.filter(item => completedItems.has(item.id)).length}/{items.length})
+                  </span>
+                </h3>
+                <div className="flex items-center">
+                  {isExpanded ? (
+                    <ChevronUp className="w-5 h-5 text-gray-400" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-400" />
+                  )}
+                </div>
+              </button>
+              
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                  {items.map((item) => (
+                    <label
+                      key={item.id}
+                      className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-200 ${
+                        completedItems.has(item.id)
+                          ? 'bg-green-900/30 border border-green-500/50'
+                          : 'bg-hollow-dark hover:bg-gray-700 border border-transparent'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={completedItems.has(item.id)}
+                        onChange={() => toggleItem(item.id)}
+                        className="sr-only"
+                      />
+                      
+                      <div className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                        completedItems.has(item.id)
+                          ? 'bg-green-500 border-green-500'
+                          : 'border-gray-400 hover:border-blue-400'
+                      }`}>
+                        {completedItems.has(item.id) && (
+                          <Check className="w-4 h-4 text-white" />
+                        )}
+                      </div>
+                      
+                      <div className="flex-1">
+                        <div className="text-white font-medium">{item.name}</div>
+                        {item.description ? (
+                          <div className="text-sm text-gray-400">{item.description}</div>
+                        ) : (
+                          <div className="text-sm text-gray-400">{item.percentage}%</div>
+                        )}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Mensagem de conclusão */}
