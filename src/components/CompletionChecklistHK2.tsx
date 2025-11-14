@@ -21,47 +21,114 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
 
   // Dados do checklist de 100% para Silksong
   const checklistData: ChecklistItem[] = [
-    // Máscaras (10%)
-    { id: 'mask-1', name: 'Máscara 1', category: 'Máscaras', percentage: 0.5, description: 'Loja no Vale dos Ossos' },
-    { id: 'mask-2', name: 'Máscara 2', category: 'Máscaras', percentage: 0.5, description: 'Entrada do Covil dos Vermes' },
-    { id: 'mask-3', name: 'Máscara 3', category: 'Máscaras', percentage: 0.5, description: 'Campos Longiquos, com planador' },
-    { id: 'mask-4', name: 'Máscara 4', category: 'Máscaras', percentage: 0.5, description: 'Cascomadeira' },
-    { id: 'mask-5', name: 'Máscara 5', category: 'Máscaras', percentage: 0.5, description: 'Ninho de Atla (Eva)' },
-    { id: 'mask-6', name: 'Máscara 6', category: 'Máscaras', percentage: 0.5, description: 'Docas Profundas, na fronteira com Medula' },
-    { id: 'mask-7', name: 'Máscara 7', category: 'Máscaras', percentage: 0.5, description: 'Mercadora Jubilana' },
-    { id: 'mask-8', name: 'Máscara 8', category: 'Máscaras', percentage: 0.5, description: 'Quest: Besta Alada Selvagem' },
-    { id: 'mask-9', name: 'Máscara 9', category: 'Máscaras', percentage: 0.5, description: 'Arena em Campos Longiquos, com arpão no fogo' },
-    { id: 'mask-10', name: 'Máscara 10', category: 'Máscaras', percentage: 0.5, description: 'Degraus Devastados, com pulo duplo' },
-    { id: 'mask-11', name: 'Máscara 11', category: 'Máscaras', percentage: 0.5, description: 'Bosque dos Lumes' },
-    { id: 'mask-12', name: 'Máscara 12', category: 'Máscaras', percentage: 0.5, description: 'Mecanismo Vital, após arena' },
-    { id: 'mask-13', name: 'Máscara 13', category: 'Máscaras', percentage: 0.5, description: 'Câmaras Sussurantes, região abaixo do sentinela' },
-    { id: 'mask-14', name: 'Máscara 14', category: 'Máscaras', percentage: 0.5, description: 'Rochedo, area de espinhos e engrenagens' },
-    { id: 'mask-15', name: 'Máscara 15', category: 'Máscaras', percentage: 0.5, description: 'Monte Plumidio, próximo ao banco no extremo do mapa' },
-    { id: 'mask-16', name: 'Máscara 16', category: 'Máscaras', percentage: 0.5, description: 'Bilebrejo' },
-    { id: 'mask-17', name: 'Máscara 17', category: 'Máscaras', percentage: 0.5, description: 'Monte Plumidio, ato 3' },
-    { id: 'mask-18', name: 'Máscara 18', category: 'Máscaras', percentage: 0.5, description: 'Quest: Massas de vazio, ato 3' },
-    { id: 'mask-19', name: 'Máscara 19', category: 'Máscaras', percentage: 0.5, description: 'Quest: Caçador Oculto, ato 3' },
-    { id: 'mask-20', name: 'Máscara 20', category: 'Máscaras', percentage: 0.5, description: 'Quest: Mais Rapido de Fiarlongo, ato 3 ' },
+    // Ferramentas de Ataque (18%)
+    { id: 'tool-1', name: 'Pino Reto', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-2', name: 'Pino Tríplice', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-3', name: 'Fragmento de Ferrão', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-4', name: 'Tachinhas', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-5', name: 'Pinolongo', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-6', name: 'Curvafoice', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-7', name: 'Anel de Arremesso', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-8', name: 'Almofapino', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-9', name: 'Corta-concha', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-10', name: 'Tiro de Seda', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-11', name: 'Broca de Cavador', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-12', name: 'Roda Mecânica', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-13', name: 'Mosca Mecânica', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-14', name: 'Canhão de Rosários', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-15', name: 'Orbevolts', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-16', name: 'Frasco de Plásmio', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-17', name: 'Cerveja de Pulga', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
+    { id: 'tool-18', name: 'Placa Ignea', category: 'Ferramentas de Ataque', percentage: 1, description: '' },
 
-    // Carretel de Seda (15%)
-    { id: 'spool-1', name: 'Fragmento de Carretel 1', category: 'Carretel de Seda', percentage: 0.5, description: 'Vale dos Ossos, sala secreta' },
-    { id: 'spool-2', name: 'Fragmento de Carretel 2', category: 'Carretel de Seda', percentage: 0.5, description: 'Docas Profundas, sul do mapa' },
-    { id: 'spool-3', name: 'Fragmento de Carretel 3', category: 'Carretel de Seda', percentage: 0.5, description: 'Loja Campanula, após quest do entregador' },
-    { id: 'spool-4', name: 'Fragmento de Carretel 4', category: 'Carretel de Seda', percentage: 0.5, description: 'Pântano Cinzento, acima do banco dos corvos' },
-    { id: 'spool-5', name: 'Fragmento de Carretel 5', category: 'Carretel de Seda', percentage: 0.5, description: 'Ninho de Atla (Eva)' },
-    { id: 'spool-6', name: 'Fragmento de Carretel 6', category: 'Carretel de Seda', percentage: 0.5, description: 'Rochedo, fronteira com Monte Plumidio' },
-    { id: 'spool-7', name: 'Fragmento de Carretel 7', category: 'Carretel de Seda', percentage: 0.5, description: 'Degraus Devastados, loja do Grindle' },
-    { id: 'spool-8', name: 'Fragmento de Carretel 8', category: 'Carretel de Seda', percentage: 0.5, description: 'Grande Portão, após chegar com as 14 pulgas' },
-    { id: 'spool-9', name: 'Fragmento de Carretel 9', category: 'Carretel de Seda', percentage: 0.5, description: 'Grande Portão, acima das balanças' },
-    { id: 'spool-10', name: 'Fragmento de Carretel 10', category: 'Carretel de Seda', percentage: 0.5, description: 'Ala Branca, por baixo do elevador' },
-    { id: 'spool-11', name: 'Fragmento de Carretel 11', category: 'Carretel de Seda', percentage: 0.5, description: 'Ala Branca, quest da Sherma' },
-    { id: 'spool-12', name: 'Fragmento de Carretel 12', category: 'Carretel de Seda', percentage: 0.5, description: 'Claustroforjas, após arena na área central' },
-    { id: 'spool-13', name: 'Fragmento de Carretel 13', category: 'Carretel de Seda', percentage: 0.5, description: 'Claustroforjas, sul direita' },
-    { id: 'spool-14', name: 'Fragmento de Carretel 14', category: 'Carretel de Seda', percentage: 0.5, description: 'Mecanismo Vital, sul direita' },
-    { id: 'spool-15', name: 'Fragmento de Carretel 15', category: 'Carretel de Seda', percentage: 0.5, description: 'Loja Jubilana, após 2º desaparecimento' },
-    { id: 'spool-16', name: 'Fragmento de Carretel 16', category: 'Carretel de Seda', percentage: 0.5, description: 'Memorium' },
-    { id: 'spool-17', name: 'Fragmento de Carretel 17', category: 'Carretel de Seda', percentage: 0.5, description: 'Salões Supremos, no topo' },
-    { id: 'spool-18', name: 'Fragmento de Carretel 18', category: 'Carretel de Seda', percentage: 0.5, description: 'Docas Profundas, área com chave ou arpão' },
+    // Ferramentas de Defesa (21%)
+    { id: 'defense-tool-1', name: 'Olho do Druida', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-2', name: 'Sino de Magma', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-3', name: 'Sino Protetor', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-4', name: 'Multivinculador', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-5', name: 'Máscara Fraturada', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-6', name: 'Bolsa de Pólipo', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-7', name: 'Teceleve', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-8', name: 'Bainha Serrilhada', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-9', name: 'Conjunto Injetor', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-10', name: 'Espelhos de Garra', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-11', name: 'Vínculo Reserva', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-12', name: 'Extensor de Carretel', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-13', name: 'Cristal da Memória', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-14', name: 'Catassaque', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-15', name: 'Filamento Voltaico', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-16', name: 'Garralonga', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-17', name: 'Lanterna de Lumefogo', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-18', name: 'Guirlanda da Pureza', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-19', name: 'Sela Rápida', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-20', name: 'Ovo de Pulgalia', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    { id: 'defense-tool-21', name: 'Emblema de Pino', category: 'Ferramentas de Defesa', percentage: 1, description: '' },
+    
+    // Ferramentas Auxiliares (12%)
+    { id: 'aux-tool-1', name: 'Bússola', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-2', name: 'Pingente de Fragmento', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-3', name: 'Broche de Magnetita', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-4', name: 'Bolsa de Inseto Morto', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-5', name: 'Bracelete Farpado', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-6', name: 'Cinto Pesado', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-7', name: 'Dados de Magnetita', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-8', name: 'Braçaranha', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-9', name: 'Empunhadora de Subida', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-10', name: 'Marca do Ladrão', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-11', name: 'Tornozeleiras Sedavelozes', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+    { id: 'aux-tool-12', name: 'Cordões de Aranha', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
+
+    // Bolsa de Ferramentas e Conjunto de Fabricação (8%)
+    { id: 'bag-capacity-1', name: 'Capacidade da Bolsa 1', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
+    { id: 'bag-capacity-2', name: 'Capacidade da Bolsa 2', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
+    { id: 'bag-capacity-3', name: 'Capacidade da Bolsa 3', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
+    { id: 'bag-capacity-4', name: 'Capacidade da Bolsa 4', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
+    { id: 'tool-damage-1', name: 'Dano das Ferramentas 1', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
+    { id: 'tool-damage-2', name: 'Dano das Ferramentas 2', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
+    { id: 'tool-damage-3', name: 'Dano das Ferramentas 3', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
+    { id: 'tool-damage-4', name: 'Dano das Ferramentas 4', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
+
+    // Máscaras (10%)
+    { id: 'mask-1', name: 'Máscara 1', category: 'Máscaras', percentage: 0.25, description: 'Loja no Vale dos Ossos' },
+    { id: 'mask-2', name: 'Máscara 2', category: 'Máscaras', percentage: 0.25, description: 'Entrada do Covil dos Vermes' },
+    { id: 'mask-3', name: 'Máscara 3', category: 'Máscaras', percentage: 0.25, description: 'Campos Longiquos, com planador' },
+    { id: 'mask-4', name: 'Máscara 4', category: 'Máscaras', percentage: 0.25, description: 'Cascomadeira' },
+    { id: 'mask-5', name: 'Máscara 5', category: 'Máscaras', percentage: 0.25, description: 'Ninho de Atla (Eva)' },
+    { id: 'mask-6', name: 'Máscara 6', category: 'Máscaras', percentage: 0.25, description: 'Docas Profundas, na fronteira com Medula' },
+    { id: 'mask-7', name: 'Máscara 7', category: 'Máscaras', percentage: 0.25, description: 'Mercadora Jubilana' },
+    { id: 'mask-8', name: 'Máscara 8', category: 'Máscaras', percentage: 0.25, description: 'Quest: Besta Alada Selvagem' },
+    { id: 'mask-9', name: 'Máscara 9', category: 'Máscaras', percentage: 0.25, description: 'Arena em Campos Longiquos, com arpão no fogo' },
+    { id: 'mask-10', name: 'Máscara 10', category: 'Máscaras', percentage: 0.25, description: 'Degraus Devastados, com pulo duplo' },
+    { id: 'mask-11', name: 'Máscara 11', category: 'Máscaras', percentage: 0.25, description: 'Bosque dos Lumes' },
+    { id: 'mask-12', name: 'Máscara 12', category: 'Máscaras', percentage: 0.25, description: 'Mecanismo Vital, após arena' },
+    { id: 'mask-13', name: 'Máscara 13', category: 'Máscaras', percentage: 0.25, description: 'Câmaras Sussurantes, região abaixo do sentinela' },
+    { id: 'mask-14', name: 'Máscara 14', category: 'Máscaras', percentage: 0.25, description: 'Rochedo, area de espinhos e engrenagens' },
+    { id: 'mask-15', name: 'Máscara 15', category: 'Máscaras', percentage: 0.25, description: 'Monte Plumidio, próximo ao banco no extremo do mapa' },
+    { id: 'mask-16', name: 'Máscara 16', category: 'Máscaras', percentage: 0.25, description: 'Bilebrejo' },
+    { id: 'mask-17', name: 'Máscara 17', category: 'Máscaras', percentage: 0.25, description: 'Monte Plumidio, ato 3' },
+    { id: 'mask-18', name: 'Máscara 18', category: 'Máscaras', percentage: 0.25, description: 'Quest: Massas de vazio, ato 3' },
+    { id: 'mask-19', name: 'Máscara 19', category: 'Máscaras', percentage: 0.25, description: 'Quest: Caçador Oculto, ato 3' },
+    { id: 'mask-20', name: 'Máscara 20', category: 'Máscaras', percentage: 0.25, description: 'Quest: Mais Rapido de Fiarlongo, ato 3 ' },
+
+    // Carretel de Seda (6%)
+    { id: 'spool-1', name: 'Fragmento de Carretel 1', category: 'Carretel de Seda', percentage: 0.3333, description: 'Vale dos Ossos, sala secreta' },
+    { id: 'spool-2', name: 'Fragmento de Carretel 2', category: 'Carretel de Seda', percentage: 0.3333, description: 'Docas Profundas, sul do mapa' },
+    { id: 'spool-3', name: 'Fragmento de Carretel 3', category: 'Carretel de Seda', percentage: 0.3333, description: 'Loja Campanula, após quest do entregador' },
+    { id: 'spool-4', name: 'Fragmento de Carretel 4', category: 'Carretel de Seda', percentage: 0.3333, description: 'Pântano Cinzento, acima do banco dos corvos' },
+    { id: 'spool-5', name: 'Fragmento de Carretel 5', category: 'Carretel de Seda', percentage: 0.3333, description: 'Ninho de Atla (Eva)' },
+    { id: 'spool-6', name: 'Fragmento de Carretel 6', category: 'Carretel de Seda', percentage: 0.3333, description: 'Rochedo, fronteira com Monte Plumidio' },
+    { id: 'spool-7', name: 'Fragmento de Carretel 7', category: 'Carretel de Seda', percentage: 0.3333, description: 'Degraus Devastados, loja do Grindle' },
+    { id: 'spool-8', name: 'Fragmento de Carretel 8', category: 'Carretel de Seda', percentage: 0.3333, description: 'Grande Portão, após chegar com as 14 pulgas' },
+    { id: 'spool-9', name: 'Fragmento de Carretel 9', category: 'Carretel de Seda', percentage: 0.3333, description: 'Grande Portão, acima das balanças' },
+    { id: 'spool-10', name: 'Fragmento de Carretel 10', category: 'Carretel de Seda', percentage: 0.3333, description: 'Ala Branca, por baixo do elevador' },
+    { id: 'spool-11', name: 'Fragmento de Carretel 11', category: 'Carretel de Seda', percentage: 0.3333, description: 'Ala Branca, quest da Sherma' },
+    { id: 'spool-12', name: 'Fragmento de Carretel 12', category: 'Carretel de Seda', percentage: 0.3333, description: 'Claustroforjas, após arena na área central' },
+    { id: 'spool-13', name: 'Fragmento de Carretel 13', category: 'Carretel de Seda', percentage: 0.3333, description: 'Claustroforjas, sul direita' },
+    { id: 'spool-14', name: 'Fragmento de Carretel 14', category: 'Carretel de Seda', percentage: 0.3333, description: 'Mecanismo Vital, sul direita' },
+    { id: 'spool-15', name: 'Fragmento de Carretel 15', category: 'Carretel de Seda', percentage: 0.3333, description: 'Loja Jubilana, após 2º desaparecimento' },
+    { id: 'spool-16', name: 'Fragmento de Carretel 16', category: 'Carretel de Seda', percentage: 0.3333, description: 'Memorium' },
+    { id: 'spool-17', name: 'Fragmento de Carretel 17', category: 'Carretel de Seda', percentage: 0.3333, description: 'Salões Supremos, no topo' },
+    { id: 'spool-18', name: 'Fragmento de Carretel 18', category: 'Carretel de Seda', percentage: 0.3336, description: 'Docas Profundas, área com chave ou arpão' },
 
     // Habilidades de Seda (6%)
     { id: 'silk-ability-1', name: 'Lança de Seda', category: 'Habilidades de Seda', percentage: 1, description: 'Musgalia' },
@@ -81,96 +148,26 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     { id: 'ability-7', name: 'Ataque focado', category: 'Habilidades', percentage: 1, description: 'Alfinistra' },
     { id: 'ability-8', name: 'Flor da eternidade', category: 'Habilidades', percentage: 1, description: 'Quest Para ato 3' },
 
-    // Brasões
-    { id: 'badge-1', name: 'Brasão da Besta', category: 'Brasões', percentage: 0.5, description: '' },
-    { id: 'badge-2', name: 'Brasão do Ceifador', category: 'Brasões', percentage: 0.5, description: '' },
-    { id: 'badge-3', name: 'Brasão do Viajante', category: 'Brasões', percentage: 0.5, description: '' },
-    { id: 'badge-4', name: 'Brasão da Bruxa', category: 'Brasões', percentage: 0.5, description: '' },
-    { id: 'badge-5', name: 'Brasão do Arquiteto', category: 'Brasões', percentage: 0.5, description: '' },
-    { id: 'badge-5', name: 'Brasão do Xamã', category: 'Brasões', percentage: 0.5, description: '' },
+    // Brasões (5%)
+    { id: 'badge-1', name: 'Brasão da Besta', category: 'Brasões', percentage: 1, description: '' },
+    { id: 'badge-2', name: 'Brasão do Ceifador', category: 'Brasões', percentage: 1, description: '' },
+    { id: 'badge-3', name: 'Brasão do Viajante', category: 'Brasões', percentage: 1, description: '' },
+    { id: 'badge-4', name: 'Brasão da Bruxa', category: 'Brasões', percentage: 1, description: '' },
+    { id: 'badge-5', name: 'Brasão do Arquiteto', category: 'Brasões', percentage: 1, description: '' },
+    { id: 'badge-6', name: 'Brasão do Xamã', category: 'Brasões', percentage: 1, description: '' },
    
-    // Melhoria de Agulha
-    { id: 'needle-upgrade-1', name: 'Melhoria de Agulha 1', category: 'Melhoria de Agulha', percentage: 1, description: '' },
-    { id: 'needle-upgrade-2', name: 'Melhoria de Agulha 2', category: 'Melhoria de Agulha', percentage: 1, description: '' },
-    { id: 'needle-upgrade-3', name: 'Melhoria de Agulha 3', category: 'Melhoria de Agulha', percentage: 1, description: '' },
-    { id: 'needle-upgrade-4', name: 'Melhoria de Agulha 4', category: 'Melhoria de Agulha', percentage: 1, description: '' },
- 
-    // Chefes Obrigatórios (15%)
-    { id: 'boss-1', name: 'Chefe Principal 1', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-2', name: 'Chefe Principal 2', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-3', name: 'Chefe Principal 3', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-4', name: 'Chefe Principal 4', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-5', name: 'Chefe Principal 5', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-6', name: 'Chefe Principal 6', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-7', name: 'Chefe Principal 7', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-8', name: 'Chefe Principal 8', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-9', name: 'Chefe Principal 9', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-    { id: 'boss-10', name: 'Chefe Principal 10', category: 'Chefes Obrigatórios', percentage: 1.5, description: '' },
-
-    // Chefes Opcionais (10%)
-    { id: 'optional-boss-1', name: 'Chefe Opcional 1', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-2', name: 'Chefe Opcional 2', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-3', name: 'Chefe Opcional 3', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-4', name: 'Chefe Opcional 4', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-5', name: 'Chefe Opcional 5', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-6', name: 'Chefe Opcional 6', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-7', name: 'Chefe Opcional 7', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-8', name: 'Chefe Opcional 8', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-9', name: 'Chefe Opcional 9', category: 'Chefes Opcionais', percentage: 1, description: '' },
-    { id: 'optional-boss-10', name: 'Chefe Opcional 10', category: 'Chefes Opcionais', percentage: 1, description: '' },
-
-    // Ferramentas (5%)
-    { id: 'tool-1', name: 'Ferramenta de Movimento 1', category: 'Ferramentas', percentage: 1, description: '' },
-    { id: 'tool-2', name: 'Ferramenta de Movimento 2', category: 'Ferramentas', percentage: 1, description: '' },
-    { id: 'tool-3', name: 'Ferramenta de Combate 1', category: 'Ferramentas', percentage: 1, description: '' },
-    { id: 'tool-4', name: 'Ferramenta de Combate 2', category: 'Ferramentas', percentage: 1, description: '' },
-    { id: 'tool-5', name: 'Ferramenta de Exploração', category: 'Ferramentas', percentage: 1, description: '' },
-
-    // Upgrades de Ferrão (8%)
-    { id: 'nail-upgrade-1', name: 'Upgrade de Ferrão 1', category: 'Upgrades de Ferrão', percentage: 2, description: '' },
-    { id: 'nail-upgrade-2', name: 'Upgrade de Ferrão 2', category: 'Upgrades de Ferrão', percentage: 2, description: '' },
-    { id: 'nail-upgrade-3', name: 'Upgrade de Ferrão 3', category: 'Upgrades de Ferrão', percentage: 2, description: '' },
-    { id: 'nail-upgrade-4', name: 'Upgrade de Ferrão 4', category: 'Upgrades de Ferrão', percentage: 2, description: '' },
-
-    // Áreas e Exploração (7%)
-    { id: 'area-1', name: 'Região 1', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-2', name: 'Região 2', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-3', name: 'Região 3', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-4', name: 'Região 4', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-5', name: 'Região 5', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-6', name: 'Região 6', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-7', name: 'Região 7', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-8', name: 'Região 8', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-9', name: 'Região 9', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'area-10', name: 'Região 10', category: 'Áreas e Exploração', percentage: 0.5, description: '' },
-    { id: 'map-1', name: 'Mapa da Região 1', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-2', name: 'Mapa da Região 2', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-3', name: 'Mapa da Região 3', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-4', name: 'Mapa da Região 4', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-5', name: 'Mapa da Região 5', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-6', name: 'Mapa da Região 6', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-7', name: 'Mapa da Região 7', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-8', name: 'Mapa da Região 8', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-9', name: 'Mapa da Região 9', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-    { id: 'map-10', name: 'Mapa da Região 10', category: 'Áreas e Exploração', percentage: 0.2, description: '' },
-
-    // Missões e NPCs (5%)
-    { id: 'quest-main-1', name: 'Missão Principal 1', category: 'Missões e NPCs', percentage: 0.5, description: '' },
-    { id: 'quest-main-2', name: 'Missão Principal 2', category: 'Missões e NPCs', percentage: 0.5, description: '' },
-    { id: 'quest-main-3', name: 'Missão Principal 3', category: 'Missões e NPCs', percentage: 0.5, description: '' },
-    { id: 'quest-main-4', name: 'Missão Principal 4', category: 'Missões e NPCs', percentage: 0.5, description: '' },
-    { id: 'quest-main-5', name: 'Missão Principal 5', category: 'Missões e NPCs', percentage: 0.5, description: '' },
-    { id: 'quest-main-6', name: 'Missão Principal 6', category: 'Missões e NPCs', percentage: 0.5, description: '' },
-    { id: 'npc-1', name: 'Interagir com NPC 1', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-2', name: 'Interagir com NPC 2', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-3', name: 'Interagir com NPC 3', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-4', name: 'Interagir com NPC 4', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-5', name: 'Interagir com NPC 5', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-6', name: 'Interagir com NPC 6', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-7', name: 'Interagir com NPC 7', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-8', name: 'Interagir com NPC 8', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-9', name: 'Interagir com NPC 9', category: 'Missões e NPCs', percentage: 0.2, description: '' },
-    { id: 'npc-10', name: 'Interagir com NPC 10', category: 'Missões e NPCs', percentage: 0.2, description: '' },
+    // Melhoria de Agulha (4%)
+    { id: 'needle-upgrade-1', name: 'Melhoria de Agulha 1', category: 'Melhoria de Agulha', percentage: 1, description: 'Agulha Afiada' },
+    { id: 'needle-upgrade-2', name: 'Melhoria de Agulha 2', category: 'Melhoria de Agulha', percentage: 1, description: 'Agulha Reluzente' },
+    { id: 'needle-upgrade-3', name: 'Melhoria de Agulha 3', category: 'Melhoria de Agulha', percentage: 1, description: 'Agulha de Aço Favônio' },
+    { id: 'needle-upgrade-4', name: 'Melhoria de Agulha 4', category: 'Melhoria de Agulha', percentage: 1, description: 'Agulha de Aço Pálido' },
+  
+    // Corações de Seda (3%)
+    { id: 'silk-heart-1', name: 'Coração de Seda 1', category: 'Corações de Seda', percentage: 1, description: 'Derrotar Tessela no Berço' },
+     { id: 'silk-heart-2', name: 'Coração de Seda 2', category: 'Corações de Seda', percentage: 1, description: 'Pantano Cizento' },
+    { id: 'silk-heart-3', name: 'Coração de Seda 3', category: 'Corações de Seda', percentage: 1, description: 'Derrotar Fantasma' },
+   
+  
   ];
 
   // Carregar progresso salvo do localStorage
@@ -373,7 +370,13 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
                 <h3 className="text-xl font-semibold text-white flex items-center">
                   {category}
                   <span className="ml-2 text-sm text-gray-400 font-normal">
-                    ({items.filter(item => completedItems.has(item.id)).length}/{items.length})
+                    {(() => {
+                      const completedPercentage = items.reduce((sum, item) => {
+                        return completedItems.has(item.id) ? sum + item.percentage : sum;
+                      }, 0);
+                      const totalPercentage = items.reduce((sum, item) => sum + item.percentage, 0);
+                      return `(${completedPercentage.toFixed(2)}%-${totalPercentage.toFixed(2)}%)`;
+                    })()}
                   </span>
                 </h3>
                 <div className="flex items-center">
