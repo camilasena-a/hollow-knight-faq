@@ -7,6 +7,7 @@ interface ChecklistItem {
   category: string;
   percentage: number;
   description?: string;
+  subcategory?: string; // Para subseções dentro de Extras
 }
 
 interface CompletionChecklistHK2Props {
@@ -164,10 +165,41 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
   
     // Corações de Seda (3%)
     { id: 'silk-heart-1', name: 'Coração de Seda 1', category: 'Corações de Seda', percentage: 1, description: 'Derrotar Tessela no Berço' },
-     { id: 'silk-heart-2', name: 'Coração de Seda 2', category: 'Corações de Seda', percentage: 1, description: 'Pantano Cizento' },
-    { id: 'silk-heart-3', name: 'Coração de Seda 3', category: 'Corações de Seda', percentage: 1, description: 'Derrotar Fantasma' },
-   
-  
+     { id: 'silk-heart-2', name: 'Coração de Seda 2', category: 'Corações de Seda', percentage: 1, description: 'Derrotar Eira' },
+    { id: 'silk-heart-3', name: 'Coração de Seda 3', category: 'Corações de Seda', percentage: 1, description: 'Derrotar Boss da Ala Branca' },
+
+    // Extras - Metais Artesanais (0% - não conta para 100%)
+    { id: 'metal-1', name: 'Metal Artesanal 1', category: 'Metais Artesanais', percentage: 0, description: 'Vale dos Ossos, na loja' },
+    { id: 'metal-2', name: 'Metal Artesanal 2', category: 'Metais Artesanais', percentage: 0, description: 'Medula, próximo a Skar' },
+    { id: 'metal-3', name: 'Metal Artesanal 3', category: 'Metais Artesanais', percentage: 0, description: 'Docas Profundas, com chave simples' },
+    { id: 'metal-4', name: 'Metal Artesanal 4', category: 'Metais Artesanais', percentage: 0, description: 'Degraus Devastados, caminho pra juiza' },
+    { id: 'metal-5', name: 'Metal Artesanal 5', category: 'Metais Artesanais', percentage: 0, description: 'Claustroforjas, lado direito com fogo' },
+    { id: 'metal-6', name: 'Metal Artesanal 6', category: 'Metais Artesanais', percentage: 0, description: 'Bosque dos Lumes' },
+    { id: 'metal-7', name: 'Metal Artesanal 7', category: 'Metais Artesanais', percentage: 0, description: 'Cantoclave, loja Jubilana' },
+    { id: 'metal-8', name: 'Metal Artesanal 8', category: 'Metais Artesanais', percentage: 0, description: 'Canais Pestilentos, final do lago' },
+ 
+    // Medalhões Memoriais (0% - não conta para 100%)
+    { id: 'medalhao-1', name: 'Medalhao Memorial 1', category: 'Medalhões Memoriais', percentage: 0, description: 'Trilha de Skar' },
+    { id: 'medalhao-2', name: 'Medalhao Memorial 2', category: 'Medalhões Memoriais', percentage: 0, description: 'Campos Longiquos, na loja' },
+    { id: 'medalhao-3', name: 'Medalhao Memorial 3', category: 'Medalhões Memoriais', percentage: 0, description: 'Medula, próximo a Eira' },
+    { id: 'medalhao-4', name: 'Medalhao Memorial 4', category: 'Medalhões Memoriais', percentage: 0, description: 'Vale dos Ossos, quest  dos caralignos' },
+    { id: 'medalhao-5', name: 'Medalhao Memorial 5', category: 'Medalhões Memoriais', percentage: 0, description: 'Pântano Cinzento, próximo a Eira' },
+    { id: 'medalhao-6', name: 'Medalhao Memorial 6', category: 'Medalhões Memoriais', percentage: 0, description: 'Campanula, na loja' },
+    { id: 'medalhao-7', name: 'Medalhao Memorial 7', category: 'Medalhões Memoriais', percentage: 0, description: 'Degraus Devastados, próximo a Shakra' },
+    { id: 'medalhao-8', name: 'Medalhao Memorial 8', category: 'Medalhões Memoriais', percentage: 0, description: 'Covil dos Vermes, abaixo do mapa' },
+    { id: 'medalhao-9', name: 'Medalhao Memorial 9', category: 'Medalhões Memoriais', percentage: 0, description: 'Quase lar, dentro do bar' },
+    { id: 'medalhao-10', name: 'Medalhao Memorial 10', category: 'Medalhões Memoriais', percentage: 0, description: 'Claustroforjas, próximo aos bancos pagos' },
+    { id: 'medalhao-11', name: 'Medalhao Memorial 11', category: 'Medalhões Memoriais', percentage: 0, description: 'Areias de Karak' },
+    { id: 'medalhao-12', name: 'Medalhao Memorial 12', category: 'Medalhões Memoriais', percentage: 0, description: 'Orgão Exaustor, no caminho para Cidadela' },
+    { id: 'medalhao-13', name: 'Medalhao Memorial 13', category: 'Medalhões Memoriais', percentage: 0, description: 'Câmaras Sussurantes, passagem secreta' },
+    { id: 'medalhao-14', name: 'Medalhao Memorial 14', category: 'Medalhões Memoriais', percentage: 0, description: 'Bilebrejo, esquerda acima da Eira' },
+    { id: 'medalhao-15', name: 'Medalhao Memorial 15', category: 'Medalhões Memoriais', percentage: 0, description: 'Bilibrejo, acima direita' },
+    { id: 'medalhao-16', name: 'Medalhao Memorial 16', category: 'Medalhões Memoriais', percentage: 0, description: 'Memorium' },
+    { id: 'medalhao-17', name: 'Medalhao Memorial 17', category: 'Medalhões Memoriais', percentage: 0, description: 'Rochedo, com chave da apostata'},
+    { id: 'medalhao-18', name: 'Medalhao Memorial 18', category: 'Medalhões Memoriais', percentage: 0, description: 'Docas Profundas, com chave simples ou arpão' },
+    { id: 'medalhao-19', name: 'Medalhao Memorial 19', category: 'Medalhões Memoriais', percentage: 0, description: 'Campos Longiquos, area do ato 3' },
+    { id: 'medalhao-20', name: 'Medalhao Memorial 20', category: 'Medalhões Memoriais', percentage: 0, description: 'Campanula, ato 3' },
+ 
   ];
 
   // Carregar progresso salvo do localStorage
@@ -273,8 +305,12 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     return '#6b7280';
   };
 
-  // Agrupar itens por categoria
-  const groupedItems = checklistData.reduce((acc, item) => {
+  // Separar itens normais dos extras
+  const normalItems = checklistData.filter(item => item.category !== 'Extras' && item.category !== 'Metais Artesanais' && item.category !== 'Medalhões Memoriais');
+  const extraItems = checklistData.filter(item => item.category === 'Extras' || item.category === 'Metais Artesanais' || item.category === 'Medalhões Memoriais');
+
+  // Agrupar itens normais por categoria
+  const groupedItems = normalItems.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
     }
@@ -282,11 +318,23 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     return acc;
   }, {} as Record<string, ChecklistItem[]>);
 
+  // Agrupar itens extras por categoria (ou subcategoria se existir)
+  const groupedExtras = extraItems.reduce((acc, item) => {
+    const category = item.subcategory || item.category;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(item);
+    return acc;
+  }, {} as Record<string, ChecklistItem[]>);
+
   // Inicializar todas as seções como expandidas por padrão
   useEffect(() => {
     const allCategories = Object.keys(groupedItems);
-    if (allCategories.length > 0 && expandedSections.size === 0) {
-      setExpandedSections(new Set(allCategories));
+    const allExtraSections = Object.keys(groupedExtras).map(sub => `extras-${sub}`);
+    const allSections = [...allCategories, ...allExtraSections];
+    if (allSections.length > 0 && expandedSections.size === 0) {
+      setExpandedSections(new Set(allSections));
     }
   }, [checklistData]);
 
@@ -436,6 +484,83 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
           );
         })}
       </div>
+
+      {/* Seção Extras - região separada no final */}
+      {extraItems.length > 0 && (
+        <div className="mt-12 pt-8 border-t-2 border-gray-600 bg-gray-800/50 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-6">Extras</h2>
+          <div className="space-y-6">
+            {Object.entries(groupedExtras).map(([subcategory, items]) => {
+              const extraSectionKey = `extras-${subcategory}`;
+              const isExpanded = expandedSections.has(extraSectionKey);
+              return (
+                <div key={subcategory} className="border-b border-gray-600 pb-6 last:border-b-0">
+                  <button
+                    onClick={() => toggleSection(extraSectionKey)}
+                    className="w-full flex items-center justify-between text-left mb-4 hover:opacity-80 transition-opacity"
+                  >
+                    <h3 className="text-xl font-semibold text-white flex items-center">
+                      {subcategory}
+                      <span className="ml-2 text-sm text-gray-400 font-normal">
+                        ({items.filter(item => completedItems.has(item.id)).length}/{items.length})
+                      </span>
+                    </h3>
+                    <div className="flex items-center">
+                      {isExpanded ? (
+                        <ChevronUp className="w-5 h-5 text-gray-400" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-400" />
+                      )}
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                      {items.map((item) => (
+                        <label
+                          key={item.id}
+                          className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-200 ${
+                            completedItems.has(item.id)
+                              ? 'bg-green-900/30 border border-green-500/50'
+                              : 'bg-hollow-dark hover:bg-gray-700 border border-transparent'
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={completedItems.has(item.id)}
+                            onChange={() => toggleItem(item.id)}
+                            className="sr-only"
+                          />
+                          
+                          <div className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                            completedItems.has(item.id)
+                              ? 'bg-green-500 border-green-500'
+                              : 'border-gray-400 hover:border-blue-400'
+                          }`}>
+                            {completedItems.has(item.id) && (
+                              <Check className="w-4 h-4 text-white" />
+                            )}
+                          </div>
+                          
+                          <div className="flex-1">
+                            <div className="text-white font-medium">{item.name}</div>
+                            {item.description && (
+                              <div className="text-sm text-gray-400">{item.description}</div>
+                            )}
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Mensagem de conclusão */}
       {totalPercentage >= 100 && (
