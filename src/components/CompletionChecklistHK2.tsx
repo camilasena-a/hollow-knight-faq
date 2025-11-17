@@ -80,14 +80,14 @@ const CompletionChecklistHK2: React.FC<CompletionChecklistHK2Props> = ({ tutoria
     { id: 'aux-tool-12', name: 'Cordões de Aranha', category: 'Ferramentas Auxiliares', percentage: 1, description: '' },
 
     // Bolsa de Ferramentas e Conjunto de Fabricação (8%)
-    { id: 'bag-capacity-1', name: 'Capacidade da Bolsa 1', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
-    { id: 'bag-capacity-2', name: 'Capacidade da Bolsa 2', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
-    { id: 'bag-capacity-3', name: 'Capacidade da Bolsa 3', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
-    { id: 'bag-capacity-4', name: 'Capacidade da Bolsa 4', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta a capacidade da bolsa de ferramentas' },
-    { id: 'tool-damage-1', name: 'Dano das Ferramentas 1', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
-    { id: 'tool-damage-2', name: 'Dano das Ferramentas 2', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
-    { id: 'tool-damage-3', name: 'Dano das Ferramentas 3', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
-    { id: 'tool-damage-4', name: 'Dano das Ferramentas 4', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Aumenta o dano das ferramentas' },
+    { id: 'bag-capacity-1', name: 'Capacidade da Bolsa 1', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Campos Longiquos, loja do Mort' },
+    { id: 'bag-capacity-2', name: 'Capacidade da Bolsa 2', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Medula, NPC Loddie com desafio dos pinos' },
+    { id: 'bag-capacity-3', name: 'Capacidade da Bolsa 3', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Pântano Cinzento, quest do diário do caçador' },
+    { id: 'bag-capacity-4', name: 'Capacidade da Bolsa 4', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Grande Portão, após pegar 20 pulgas' },
+    { id: 'tool-damage-1', name: 'Dano das Ferramentas 1', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Docas Profundas, loja daFilha da Forja' },
+    { id: 'tool-damage-2', name: 'Dano das Ferramentas 2', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Campânula, quest dos corvos' },
+    { id: 'tool-damage-3', name: 'Dano das Ferramentas 3', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Claustroforjas, loja do arquiteto' },
+    { id: 'tool-damage-4', name: 'Dano das Ferramentas 4', category: 'Bolsa de Ferramentas e Conjunto de Fabricação', percentage: 1, description: 'Degraus Devastados, loja do Grindle' },
 
     // Máscaras (10%)
     { id: 'mask-1', name: 'Máscara 1', category: 'Máscaras', percentage: 0.25, description: 'Loja no Vale dos Ossos' },
